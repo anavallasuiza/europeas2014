@@ -7,7 +7,7 @@ require.config({
 });
 
 require(['d3', 'helpers'], function(d3, helpers) {
-	var total_votantes, g, t;
+	var total_votantes, g;
 
 	var width = 450, 
 		height = 150, 
@@ -96,17 +96,6 @@ require(['d3', 'helpers'], function(d3, helpers) {
 			});
 	};
 
-	var change = function(dataset) {
-		var file = '/general/data/' + dataset;
-		d3.json(file, function(data) {
-			total_votantes = data.votantes - data.abstencion;
-
-			generateTotalTable(data);
-
-			g.data(pie(data.datos));
-			g.transition().duration(750).attrTween("d", arcTween);
-		});
-	};
 
 	function arcTween(a) {
 		var i = d3.interpolate(this._current, a);
@@ -116,13 +105,23 @@ require(['d3', 'helpers'], function(d3, helpers) {
 		};
 	}
 
-	//temp
-	var boton = d3.select('#cambia');
+	var sel = d3.select('#totales')
+		.selectAll('button');
 
-	boton.on('click', function() {
-		change('totales2.json');
-	
-	});
+	sel.on('click', change);
+
+	var change = function() {
+		console.log(this);
+		var file = '/general/data/' + this.value;
+		d3.json(file, function(data) {
+			total_votantes = data.votantes - data.abstencion;
+
+			generateTotalTable(data);
+
+			g.data(pie(data.datos));
+			g.transition().duration(750).attrTween("d", arcTween);
+		});
+	};
 
 	//carga datos iniciais
 	d3.json('/general/data/totales.json', function(data) {
