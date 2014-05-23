@@ -2,8 +2,9 @@ require(['../../static/js/config'], function () {
 
 	require([
 	'd3',
-	'helpers'
-	], function(d3, helpers) {
+	'helpers',
+	'selector'
+	], function(d3, helpers, selector) {
 		var total_votantes, g;
 
 		var width = 450, 
@@ -132,6 +133,76 @@ require(['../../static/js/config'], function () {
 
 			generateTotalTable(data);
 			generateTotalGraph(data);
+		});
+
+
+		//Selects
+		var $selectComunidades = $('#select-comunidades');
+		var $selectProvincias = $('#select-provincias');
+		var $selectMunicipios = $('#select-municipios');
+
+		selector.init($selectComunidades);
+		selector.init($selectProvincias);
+		selector.init($selectMunicipios);
+
+		selector.replaceOptions($selectComunidades, [
+			{
+				text: 'Galicia',
+				value: 1
+			},{
+				text: 'Asturias',
+				value: 2
+			},{
+				text: 'Cantabria',
+				value: 3
+			}
+		]);
+
+		//Ao cambiar de comunidade, carga as provincias e borra municipios:
+		$selectComunidades.change(function () {
+			// var file = 'data/provincias/' + $selectComunidades.val() + '.json';
+			// selector.loadOptions($selectProvincias, file);
+
+			selector.replaceOptions($selectProvincias, [
+				{
+					text: 'A Coruña',
+					value: 1
+				},{
+					text: 'Lugo',
+					value: 2
+				},{
+					text: 'Ourense',
+					value: 3
+				},{
+					text: 'Pontevedra',
+					value: 4
+				}
+			]);
+
+			//borra municipios no caso de que haxa
+			selector.clearOptions($selectMunicipios);
+		});
+
+		//Ao cambiar de provincia, carga os municipios:
+		$selectProvincias.change(function () {
+			// var file = 'data/municipios/' + $selectProvincias.val() + '.json';
+			// selector.loadOptions($selectMunicipios, file);
+
+			selector.replaceOptions($selectMunicipios, [
+				{
+					text: 'Tordoia',
+					value: 1
+				},{
+					text: 'Ordes',
+					value: 2
+				},{
+					text: 'Santa Comba',
+					value: 3
+				},{
+					text: 'A Coruña',
+					value: 4
+				}
+			]);
 		});
 	});
 });

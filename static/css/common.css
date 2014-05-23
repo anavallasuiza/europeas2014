@@ -1,0 +1,95 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
+
+/* bibliotecas */
+@import url('../libs/csans/csans.css');
+@import url('../libs/csans/ui/csans.ui.buttons.css');
+@import url('../libs/selectize/dist/css/selectize.css');
+
+/* Variables */
+:root {
+	--gris: #E3E3E3;
+	--gris-escuro: color(var(--gris), light:30);
+}
+body {
+	padding: 20px;
+	font-family: 'Open Sans', sans-serif;
+}
+
+/* Layouts */
+.ly-wrapper {
+	width: 975px;
+	margin: 0 auto;
+	box-sizing: border-box;
+}
+.ly-2cols {
+	padding-left: 10px;
+	padding-right: 10px;
+
+	&::after {
+		content: "";
+		display: block;
+		clear: both;
+	}
+
+	> * {
+		float: left;
+		width: 50%;
+		box-sizing: border-box;
+		padding: 0 10px;
+	}
+}
+
+
+/* Widget básico */
+.widget {
+	background: var(--gris);
+
+	> header {
+		padding: 20px;
+
+		h1 {
+			font-weight: normal;
+			letter-spacing: -0.015em;
+		}
+	}
+	.widget-contido {
+		h2 {
+			font-weight: normal;
+			letter-spacing: -0.015em;
+			color: var(--gris-escuro);
+			font-size: 3rem;
+			margin: 0 0 20px 0;
+		}
+	}
+	.widget-lenda {
+		background: white;
+		border: solid 1px color(var(--gris), light:-5);
+		padding: 10px;
+
+		ul {
+			column-width: 200px;
+			list-style: none;
+			margin: 0;
+		}
+
+		.logo {
+			display: none;
+		}
+		.color {
+			display: inline-block;
+			width: 1em;
+			height: 1em;
+			border-radius: 3px;
+			margin-right: 0.3em;
+		}
+		.nome {
+			display: inline-block;
+			white-space: nowrap;
+		}
+		.datos {
+			color: var(--gris-escuro);
+			display: inline-block;
+			font-size: 0.8em;
+		}
+	}
+}
