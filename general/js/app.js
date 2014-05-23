@@ -1,6 +1,6 @@
 require.config({
 	paths: {
-		'd3': '../../static/js/d3/d3.min',
+		'd3': '../../static/libs/d3/d3.min',
 		'helpers': '../../static/js/common'	
 	}
 
