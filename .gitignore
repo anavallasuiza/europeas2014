@@ -1,2 +1,4 @@
 .DS_Store
 .agignore
+static/js
+!static/js/common.js
