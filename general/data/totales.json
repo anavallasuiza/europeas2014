@@ -3,15 +3,16 @@
 	"votantes_convocados": 100,
 	"votos_totales": 40,
 	"abstencion": 60,
+	"escrutado": 50,
 	"datos": [
 			{
 				"partido": "PP",
-				"votos": 15,
+				"votos": 10,
 				"escanos": 20
 			},
 			{
 				"partido": "PSOE",
-				"votos": 15,
+				"votos": 10,
 				"escanos": 20
 			},
 			{
@@ -26,12 +27,12 @@
 			},
 			{
 				"partido": "Podemos",
-				"votos": 5,
+				"votos": 4,
 				"escanos": 4
 			},
 			{
 				"partido": "Nulos",
-				"votos": 10
+				"votos": 1
 			}
 	]
 }
