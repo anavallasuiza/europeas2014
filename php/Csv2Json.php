@@ -200,8 +200,12 @@ Class Csv2Json
             return ($a['votos'] > $b['votos']) ? -1 : 1;
         });
 
-        $others = array_slice($groups, 10);
-        $groups = array_slice($groups, 0, 10);
+        $others = array_slice($groups, 11);
+        $groups = array_slice($groups, 0, 11);
+
+        array_walk($others, function (&$value) {
+            $value['votos'] = round($value['votos'] / 10);
+        });
 
         $groups[] = [
             'id' => '-1',

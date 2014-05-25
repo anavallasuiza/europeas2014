@@ -2,3 +2,4 @@
 .agignore
 static/libs
 json
+.idea/
