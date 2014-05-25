@@ -24,9 +24,9 @@ Class Csv2Json
      * @param  dir      Directorio base que contiene los ficheros
      * @return boolean
      */
-    public function results($dir, $name)
+    public function results($dir, $name_total, $name_muni)
     {
-        $array = $this->file2array($dir.'/TXTOTPE99'.$name.'/TXTOTPE99'.$name);
+        $array = $this->file2array($dir.'/TXTOTPE99'.$name_total.'/TXTOTPE99'.$name_total);
 
         $data = [];
 
@@ -101,7 +101,7 @@ Class Csv2Json
             ];
         }
 
-        foreach (glob($dir.'/TXMUNPE99'.$name.'/*') as $file) {
+        foreach (glob($dir.'/TXMUNPE99'.$name_muni.'/*') as $file) {
             $array = $this->file2array($file);
 
             foreach ($array as $row) {

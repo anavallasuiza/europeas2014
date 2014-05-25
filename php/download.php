@@ -73,7 +73,8 @@ if (empty($download)) {
     die('Files could not be downloaded');
 }
 
-$name = str_replace(['TXTOTPE99', '.gz'], '', $files[0]);
+$name_total = str_replace(['TXTOTPE99', '.gz'], '', $files[0]);
+$name_muni = str_replace(['TXMUNPE99', '.tar.gz'], '', $files[1]);
 
 file_put_contents(__DIR__.'/../json/last', date('c'));
 
