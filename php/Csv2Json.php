@@ -227,7 +227,7 @@ Class Csv2Json
             'id' => '-1',
             'nombre' => 'Blanco',
             'votos' => $this->int($row[13]),
-            'porcentaje' => $this->int($row[14], 100),
+            'porcentaje' => $this->percent($row[14]),
             'diputados' => 0
         ];
 
@@ -235,7 +235,7 @@ Class Csv2Json
             'id' => '-2',
             'nombre' => 'Nulos',
             'votos' => $this->int($row[15]),
-            'porcentaje' => $this->int($row[16], 100),
+            'porcentaje' => $this->percent($row[16]),
             'diputados' => 0
         ];
 
@@ -243,7 +243,7 @@ Class Csv2Json
             'id' => '-3',
             'nombre' => 'Otros',
             'votos' => array_sum(array_column($others, 'votos')),
-            'porcentaje' => array_sum(array_column($others, 'porcentaje')),
+            'porcentaje' => $this->percent(array_sum(array_column($others, 'porcentaje'))),
             'diputados' => array_sum(array_column($others, 'diputados')),
             'otros' => $others
         ];
@@ -255,17 +255,22 @@ Class Csv2Json
             'nombre' => $row[4],
             'censo' => $this->int($row[6]),
             'escrutado_numero' => $this->int($row[7]),
-            'escrutado_porcentaje' => $this->int($row[8], 100),
+            'escrutado_porcentaje' => $this->percent($row[8]),
             'votantes_numero' => $this->int($row[9]),
-            'votantes_porcentaje' => $this->int($row[10], 100),
+            'votantes_porcentaje' => $this->percent($row[10]),
             'abstencion_numero' => $this->int($row[11]),
-            'abstencion_porcentaje' => $this->int($row[12], 100),
+            'abstencion_porcentaje' => $this->percent($row[12]),
             'grupos' => $groups
         ];
     }
 
-    public function int($value, $max = 0)
+    public function int($value)
     {
         return (int)$value;
+    }
+
+    public function percent($value)
+    {
+        return substr($value, 0, -2).'.'.substr($value, -2);
     }
 }
