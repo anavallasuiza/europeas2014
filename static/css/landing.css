@@ -48,12 +48,21 @@ article {
 	.body {
 		line-height: 1.2;
 		margin-top: 2em;
+
+		p {
+			margin: 0.5em 0;
+		}
 	}
 	footer {
 		border-top: solid 5px var(--gris);
 		padding-top: 40px;
 		margin-top: 40px;
 	}
+}
+
+iframe.twitter-timeline {
+	margin: 0 auto;
+	display: block;
 }
 
 ul.graficas {
