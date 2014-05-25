@@ -21,6 +21,8 @@ if (strstr($html, 'credential')) {
     $redirect = $Curl->get('remote/logincheck?ajax=1&username='.$config['user'].'&realm=&credential='.$config['password']);
     $Curl->get('remote/hostcheck_install?'.preg_replace('/^.*hostcheck_install\?/', '', $redirect));
 
+    sleep(5);
+
     $html = $Curl->get('proxy/http/descargas2014npv.interior.es/99descargas/DESCAR99.htm');
 }
 
