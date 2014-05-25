@@ -186,19 +186,6 @@ Class Csv2Json
             return (int)$value[0];
         });
 
-        usort($groups, function ($a, $b) {
-            if (isset($a[2]) && isset($b[2])) {
-                return ($a[2] > $b[2]) ? -1 : 1;
-            }
-        });
-
-        $groups = array_slice($groups, 0, 10);
-
-        $groups = array_merge($groups, [
-            ['00', 'Blanco', $row[13], $row[14], 0],
-            ['00', 'Nulos', $row[15], $row[16], 0]
-        ]);
-
         array_walk($groups, function (&$value) {
             $value['id'] = $value[0];
             $value['nombre'] = $value[1];
@@ -208,6 +195,28 @@ Class Csv2Json
 
             unset($value[0], $value[1], $value[2], $value[3], $value[4]);
         });
+
+        usort($groups, function ($a, $b) {
+            return ($a['votos'] > $b['votos']) ? -1 : 1;
+        });
+
+        $groups = array_slice($groups, 0, 10);
+
+        $groups[] = [
+            'id' => '00',
+            'nombre' => 'Blanco',
+            'votos' => $row[13],
+            'porcentaje' => $row[14],
+            'diputados' => 0
+        ];
+
+        $groups[] = [
+            'id' => '00',
+            'nombre' => 'Nulos',
+            'votos' => $row[15],
+            'porcentaje' => $row[16],
+            'diputados' => 0
+        ];
 
         return [
             'tipo' => $row[0],
