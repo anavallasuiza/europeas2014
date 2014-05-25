@@ -1,0 +1,290 @@
+{
+
+    "0048": {
+        codigo: "0048",
+        nombre: "SAIn",
+        votos: 44,
+        porcentaje: 33,
+        diputados: 13
+    },
+    "0012": {
+        codigo: "0012",
+        nombre: "PSOE",
+        votos: 58,
+        porcentaje: 21,
+        diputados: 19
+    },
+    "0056": {
+        codigo: "0056",
+        nombre: "IPEX-PREX-CREX",
+        votos: 15,
+        porcentaje: 14,
+        diputados: 50
+    },
+    "0003": {
+        codigo: "0003",
+        nombre: "P.P.",
+        votos: 66,
+        porcentaje: 36,
+        diputados: 99
+    },
+    "0020": {
+        codigo: "0020",
+        nombre: "I.Fem",
+        votos: 22,
+        porcentaje: 98,
+        diputados: 63
+    },
+    "0017": {
+        codigo: "0017",
+        nombre: "CEU",
+        votos: 56,
+        porcentaje: 65,
+        diputados: 75
+    },
+    "0058": {
+        codigo: "0058",
+        nombre: "RRUE",
+        votos: 28,
+        porcentaje: 30,
+        diputados: 1
+    },
+    "0002": {
+        codigo: "0002",
+        nombre: "F.A.C.",
+        votos: 56,
+        porcentaje: 46,
+        diputados: 84
+    },
+    "0018": {
+        codigo: "0018",
+        nombre: "ACNV-BAR-PRAO-R.E.P.O-UNIO",
+        votos: 42,
+        porcentaje: 17,
+        diputados: 2
+    },
+    "0004": {
+        codigo: "0004",
+        nombre: "UPyD",
+        votos: 88,
+        porcentaje: 9,
+        diputados: 3
+    },
+    "0055": {
+        codigo: "0055",
+        nombre: "LA IZQUIERDA PLURAL (*)",
+        votos: 71,
+        porcentaje: 54,
+        diputados: 37
+    },
+    "0008": {
+        codigo: "0008",
+        nombre: "PACMA",
+        votos: 85,
+        porcentaje: 11,
+        diputados: 58
+    },
+    "0005": {
+        codigo: "0005",
+        nombre: "M.C.R.",
+        votos: 3,
+        porcentaje: 27,
+        diputados: 72
+    },
+    "0043": {
+        codigo: "0043",
+        nombre: "EPDD",
+        votos: 54,
+        porcentaje: 94,
+        diputados: 8
+    },
+    "0050": {
+        codigo: "0050",
+        nombre: "ALTER",
+        votos: 52,
+        porcentaje: 15,
+        diputados: 6
+    },
+    "0011": {
+        codigo: "0011",
+        nombre: "C's",
+        votos: 15,
+        porcentaje: 71,
+        diputados: 71
+    },
+    "0042": {
+        codigo: "0042",
+        nombre: "PIRATAS",
+        votos: 90,
+        porcentaje: 99,
+        diputados: 0
+    },
+    "0047": {
+        codigo: "0047",
+        nombre: "ImpulsoSocial",
+        votos: 91,
+        porcentaje: 55,
+        diputados: 47
+    },
+    "0040": {
+        codigo: "0040",
+        nombre: "M.S.R.",
+        votos: 74,
+        porcentaje: 97,
+        diputados: 64
+    },
+    "0067": {
+        codigo: "0067",
+        nombre: "RECORTES CERO",
+        votos: 77,
+        porcentaje: 85,
+        diputados: 74
+    },
+    "0007": {
+        codigo: "0007",
+        nombre: "PREPAL",
+        votos: 80,
+        porcentaje: 55,
+        diputados: 27
+    },
+    "0052": {
+        codigo: "0052",
+        nombre: "PRIMAVERA EUROPEA",
+        votos: 17,
+        porcentaje: 40,
+        diputados: 39
+    },
+    "0049": {
+        codigo: "0049",
+        nombre: "LPD",
+        votos: 76,
+        porcentaje: 44,
+        diputados: 66
+    },
+    "0021": {
+        codigo: "0021",
+        nombre: "EXTREMADURA UNIDA",
+        votos: 48,
+        porcentaje: 98,
+        diputados: 59
+    },
+    "0038": {
+        codigo: "0038",
+        nombre: "PARTIDO ANDALUCISTA",
+        votos: 57,
+        porcentaje: 49,
+        diputados: 75
+    },
+    "0023": {
+        codigo: "0023",
+        nombre: "PH",
+        votos: 63,
+        porcentaje: 65,
+        diputados: 45
+    },
+    "0025": {
+        codigo: "0025",
+        nombre: "EB",
+        votos: 34,
+        porcentaje: 54,
+        diputados: 44
+    },
+    "0053": {
+        codigo: "0053",
+        nombre: "VOX",
+        votos: 35,
+        porcentaje: 45,
+        diputados: 99
+    },
+    "0045": {
+        codigo: "0045",
+        nombre: "PODEMOS",
+        votos: 82,
+        porcentaje: 19,
+        diputados: 96
+    },
+    "0016": {
+        codigo: "0016",
+        nombre: "P-LIB",
+        votos: 46,
+        porcentaje: 96,
+        diputados: 80
+    },
+    "0009": {
+        codigo: "0009",
+        nombre: "PT",
+        votos: 19,
+        porcentaje: 76,
+        diputados: 34
+    },
+    "0022": {
+        codigo: "0022",
+        nombre: "FE de las JONS",
+        votos: 47,
+        porcentaje: 94,
+        diputados: 75
+    },
+    "0044": {
+        codigo: "0044",
+        nombre: "LEM",
+        votos: 87,
+        porcentaje: 70,
+        diputados: 18
+    },
+    "0037": {
+        codigo: "0037",
+        nombre: "P.C.P.E.",
+        votos: 53,
+        porcentaje: 17,
+        diputados: 15
+    },
+    "0039": {
+        codigo: "0039",
+        nombre: "D.N.",
+        votos: 12,
+        porcentaje: 75,
+        diputados: 65
+    },
+    "0028": {
+        codigo: "0028",
+        nombre: "PARTIDO X",
+        votos: 87,
+        porcentaje: 37,
+        diputados: 29
+    },
+    "0041": {
+        codigo: "0041",
+        nombre: "MOVIMIENTO RED",
+        votos: 31,
+        porcentaje: 72,
+        diputados: 83
+    },
+    "0186": {
+        codigo: "0186",
+        nombre: "DISCAPACITADOS Y ENFERMEDADES RARAS",
+        votos: 75,
+        porcentaje: 6,
+        diputados: 28
+    },
+    "0014": {
+        codigo: "0014",
+        nombre: "CILUS",
+        votos: 73,
+        porcentaje: 88,
+        diputados: 47
+    },
+    "00": {
+        codigo: "00",
+        nombre: "Blanco",
+        votos: 69,
+        porcentaje: 34,
+        diputados: 43
+    },
+    "00": {
+        codigo: "00",
+        nombre: "Nulos",
+        votos: 48,
+        porcentaje: 54,
+        diputados: 18
+    }
+}
