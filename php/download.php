@@ -14,9 +14,9 @@ $Curl->setOption(CURLOPT_COOKIESESSION, true);
 $Curl->setOption(CURLOPT_COOKIEJAR, $cookie);
 $Curl->setOption(CURLOPT_COOKIEFILE, $cookie);
 
-$html = $Curl->get('proxy/http/descargas2014npv.interior.es/99descargas/DESCAR99.htm');
+$html = 'credential';
 
-if (strstr($html, 'credential')) {
+while (strstr($html, 'credential')) {
     $Curl->get('remote/login');
     $redirect = $Curl->get('remote/logincheck?ajax=1&username='.$config['user'].'&realm=&credential='.$config['password']);
     $Curl->get('remote/hostcheck_install?'.preg_replace('/^.*hostcheck_install\?/', '', $redirect));
@@ -24,10 +24,6 @@ if (strstr($html, 'credential')) {
     sleep(5);
 
     $html = $Curl->get('proxy/http/descargas2014npv.interior.es/99descargas/DESCAR99.htm');
-}
-
-if (strstr($html, 'credential')) {
-    die('Waiting for login access');
 }
 
 preg_match_all('/TXTOTPE99[^"]+.gz/', $html, $files_total);
