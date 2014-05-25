@@ -271,7 +271,6 @@ Class Csv2Json
 
     public function percent($value)
     {
-        $value = preg_replace('/^0+/', substr($value, 0, -2)).'.'.substr($value, -2);
-        return (strpos('.', $value) === 0) ? ('0'.$value) : $value;
+        return preg_replace('/([0-9]{3})([0-9]{2})/', '$1.$2', $value);
     }
 }
