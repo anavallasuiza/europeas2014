@@ -231,13 +231,13 @@ Class Csv2Json
             'diputados' => array_sum(array_column($others, 'diputados')),
             'otros' => $others
         ];
-
+*/
         $max = array_sum(array_column($groups, 'votos'));
 
         array_walk($groups, function (&$value) use ($max) {
             $value['porcentaje'] = round(($value['votos'] * 100) / $max);
         });
-*/
+
         return [
             'tipo' => $row[0],
             'CM' => $row[1],
