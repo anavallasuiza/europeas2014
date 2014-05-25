@@ -63,7 +63,8 @@ require(['../../static/js/config'], function () {
 				})
 				.attr("d", arc)
 				.attr("svg:title", function(d) {
-					return helpers.getInfoPartido(d.data.id, 'nombre', 'Default');
+					return d.data.nombre;
+					//return helpers.getInfoPartido(d.data.id, 'nombre', 'Default');
 				})
 				.each(function (d) {
 					this._current = d;
@@ -79,8 +80,8 @@ require(['../../static/js/config'], function () {
 				})
 				.attr("text-anchor", "middle")
 				.text(function (d) {
-					var currentName = helpers.getInfoPartido(d.data.id, 'nombre', 'Default'); 
-					return currentName.length > 6 ? '' : currentName;
+					//var currentName = helpers.getInfoPartido(d.data.id, 'nombre', 'Default'); 
+					return d.data.nombre.length > 6 ? '' : d.data.nombre;
 				})
 				.style("fill-opacity", function (d) {
 					return d.data.porcentaje > 5 ? 1 : 0;
@@ -111,7 +112,8 @@ require(['../../static/js/config'], function () {
 					return d.nombre;
 				})
 				.text(function(d) {
-					return helpers.getInfoPartido(d.id, 'nombre', 'Default');
+					//return helpers.getInfoPartido(d.id, 'nombre', 'Default');
+					return d.nombre;
 				});
 
 			total_partido
@@ -136,7 +138,6 @@ require(['../../static/js/config'], function () {
 
 		var initGraph = function(dataFile, callback) {
 			var file = '/json/' + dataFile;
-			console.log(file);
 			d3.json(file, function(error, data) {
 				if(error) {
 					location.reload();
