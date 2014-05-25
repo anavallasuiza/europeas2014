@@ -114,11 +114,17 @@ require(['../../static/js/config'], function () {
 				});
 
 			total_partido
-				.append('span')
-				.attr('class', 'datos')
+				.append('strong')
+				.attr('class', 'percent')
 				.text(function(d) {
-					var escanos = d.escanos ? d.escanos + ' escaños' : '';
-					return d.porcentaje + '% ' + escanos;
+					return d.porcentaje + '%';
+				});
+
+			total_partido
+				.append('span')
+				.attr('class', 'diputados')
+				.text(function(d) {
+					return d.diputados ? d.diputados + ' escaños' : '';
 				});
 		};
 
