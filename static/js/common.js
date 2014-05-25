@@ -210,6 +210,16 @@ define([], function() {
 				nombre: "CILUS",
 				color: "#CCCC99"
 			},
+			"b0001": {
+				codigo: "b0001",
+				nombre: "CE",
+				color: "#CCCC99"
+			},
+			"b0002": {
+				codigo: "b0002",
+				nombre: "EdP",
+				color: "#CCCC99"
+			},
 			"-1": {
 				codigo: "00",
 				nombre: "Blanco",
