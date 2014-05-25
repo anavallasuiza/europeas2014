@@ -1,7 +1,8 @@
 <?php
 echo "\n".date('Y-m-d H:i:s').' - Started';
 
-include ('Csv2Json.php');
+include (__DIR__.'/array_column.php');
+include (__DIR__.'/Csv2Json.php');
 
 $config = include (__DIR__.'/config.php');
 

@@ -19,4 +19,8 @@ require(['jquery'], function ($) {
 		$this.parents('.button-escoller').find('.button-activo').removeClass('button-activo');
 		$this.addClass('button-activo');
 	});
+
+	$('textarea.embed').on('click', function () {
+		$(this).focus().select();
+	});
 });

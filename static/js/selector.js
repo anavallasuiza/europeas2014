@@ -1,8 +1,15 @@
 define(['jquery', 'selectize'], function ($) {
 	var selector = {
-		init: function ($element) {
-			$element.selectize({
-			});
+		init: function ($element, options) {
+			options = options || {};
+
+			$element.selectize(options);
+		},
+		ocultar: function ($element) {
+			$element.next('.selectize-control').hide();
+		},
+		mostrar: function ($element) {
+			$element.next('.selectize-control').show();
 		},
 		replaceOptions: function ($element, newData) {
 			var selectize = $element[0].selectize;

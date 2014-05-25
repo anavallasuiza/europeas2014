@@ -197,11 +197,16 @@ label {
 		.nome {
 			display: inline-block;
 			white-space: nowrap;
+			max-width: 120px;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			vertical-align: middle;
 		}
 		.datos {
 			color: var(--gris-escuro);
 			display: inline-block;
 			font-size: 0.85em;
+			vertical-align: middle;
 		}
 		.nome + .datos {
 			margin-left: 0.5em;
