@@ -134,6 +134,7 @@ Class Csv2Json
 
         foreach ($data as $blocks) {
             foreach ($blocks as $values) {
+                /*
                 uasort($values, function ($a, $b) {
                     return ($a['data']['nombre'] < $b['data']['nombre']) ? -1 : 1;
                 });
@@ -141,6 +142,7 @@ Class Csv2Json
                 uasort($values['children'], function ($a, $b) {
                     return ($a['nombre'] < $b['nombre']) ? -1 : 1;
                 });
+                */
 
                 $this->saveJson($values['file'], $values);
             }
