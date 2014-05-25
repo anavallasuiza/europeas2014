@@ -59,7 +59,7 @@
 			}
 			{ 
 				"nome": "Sergio Gutiérrez Prieto", 
-				"foto": "PSOE12_serio_gutierrez.png", 
+				"foto": "PSOE12_sergio_gutierrez.png", 
 				"sexo": "V" 
 			}
 			{ 
@@ -319,9 +319,7 @@
 		]		
 	},
 	{ 
-		"partido": "IU-IP
-
-", 
+		"partido": "IU-IP", 
 		"candidatos": [ 
 			{ 
 				"nome": "Willy Enrique Meyer Pleite", 
