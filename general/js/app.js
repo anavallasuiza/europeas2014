@@ -64,7 +64,7 @@ require(['../../static/js/config'], function () {
 				.attr("stroke", "white")
 				.attr("stroke-width", 0.5)
 				.style("fill", function(d) { 
-					return helpers.getInfoPartido(d.data.id, 'color', '#CCCCCC');
+					return helpers.getInfoPartido(d.data.id, 'color', helpers.getRandomColor(d.data.nombre));
 				})
 				.attr("d", arc)
 				.attr("svg:title", function(d) {
@@ -105,7 +105,7 @@ require(['../../static/js/config'], function () {
 				.append('span')
 				.attr('class', 'color')
 				.style('background', function (d) {
-					return helpers.getInfoPartido(d.id, 'color', '#CCCCCC');
+					return helpers.getInfoPartido(d.id, 'color', helpers.getRandomColor(d.nombre));
 				});
 
 			total_partido
