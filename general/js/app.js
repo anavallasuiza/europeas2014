@@ -57,7 +57,7 @@ require(['../../static/js/config'], function () {
 				.attr("stroke", "white")
 				.attr("stroke-width", 0.5)
 				.style("fill", function(d) { 
-					return helpers.info[d.data.id].color || '#CCCCCC'; 
+					return helpers.getInfoPartido(d.data.id, 'color', '#CCCCCC');
 				})
 				.attr("d", arc)
 				.each(function (d) {
@@ -95,7 +95,7 @@ require(['../../static/js/config'], function () {
 				.append('span')
 				.attr('class', 'color')
 				.style('background', function (d) {
-					return helpers.info[d.id].color || '#CCCCCC';
+					return helpers.getInfoPartido(d.id, 'color', '#CCCCCC');
 				});
 
 			total_partido
@@ -157,7 +157,7 @@ require(['../../static/js/config'], function () {
 
 		};
 
-		var initGraph = function(dataFile) {
+		var initGraph = function(dataFile, callback) {
 			var file = '/json/' + dataFile;
 			d3.json(file, function(data) {
 				titulo.text(data.data.nombre);
@@ -170,6 +170,10 @@ require(['../../static/js/config'], function () {
 				} else {
 					currentData = data.data;
 					buildGraph();
+				}
+
+				if (callback) {
+					callback(data.children);
 				}
 			});
 		};
@@ -185,74 +189,53 @@ require(['../../static/js/config'], function () {
 			updateGraph();
 		});
 
-		initGraph('TO-00.json');
 
 		var $selectComunidades = $('#select-comunidades');
 		var $selectProvincias = $('#select-provincias');
 		var $selectMunicipios = $('#select-municipios');
 
-		selector.init($selectComunidades);
-		selector.init($selectProvincias);
-		selector.init($selectMunicipios);
-
-		selector.replaceOptions($selectComunidades, [
-			{
-				text: 'Galicia',
-				value: 1
-			},{
-				text: 'Asturias',
-				value: 2
-			},{
-				text: 'Cantabria',
-				value: 3
-			}
-		]);
-
-		//Ao cambiar de comunidade, carga as provincias e borra municipios:
-		$selectComunidades.change(function () {
-			// var file = 'data/provincias/' + $selectComunidades.val() + '.json';
-			// selector.loadOptions($selectProvincias, file);
-
-			selector.replaceOptions($selectProvincias, [
-				{
-					text: 'A Coruña',
-					value: 1
-				},{
-					text: 'Lugo',
-					value: 2
-				},{
-					text: 'Ourense',
-					value: 3
-				},{
-					text: 'Pontevedra',
-					value: 4
-				}
-			]);
-
-			//borra municipios no caso de que haxa
-			selector.clearOptions($selectMunicipios);
+		selector.init($selectComunidades, {
+			labelField: "nombre",
+			valueField: "json"
+		});
+		selector.init($selectProvincias, {
+			labelField: "nombre",
+			valueField: "json"
+		});
+		selector.init($selectMunicipios, {
+			labelField: "nombre",
+			valueField: "json"
 		});
 
-		//Ao cambiar de provincia, carga os municipios:
-		$selectProvincias.change(function () {
-			// var file = 'data/municipios/' + $selectProvincias.val() + '.json';
-			// selector.loadOptions($selectMunicipios, file);
+		selector.ocultar($selectProvincias);
+		selector.ocultar($selectMunicipios);
 
-			selector.replaceOptions($selectMunicipios, [
-				{
-					text: 'Tordoia',
-					value: 1
-				},{
-					text: 'Ordes',
-					value: 2
-				},{
-					text: 'Santa Comba',
-					value: 3
-				},{
-					text: 'A Coruña',
-					value: 4
-				}
-			]);
+		initGraph('TO-00.json', function (datos) {
+			selector.replaceOptions($selectComunidades, datos);
+
+			//Ao cambiar de comunidade, carga as provincias e borra municipios:
+			$selectComunidades.change(function () {
+				initGraph($selectComunidades.val(), function (datos) {
+					selector.mostrar($selectProvincias);
+					selector.replaceOptions($selectProvincias, datos);
+
+					//borra municipios no caso de que haxa
+					selector.clearOptions($selectMunicipios);
+					selector.ocultar($selectMunicipios);
+
+					//Ao cambiar de provincia, carga os municipios
+					$selectProvincias.change(function () {
+						initGraph($selectProvincias.val(), function (datos) {
+							selector.mostrar($selectMunicipios);
+							selector.replaceOptions($selectMunicipios, datos);
+
+							$selectMunicipios.change(function () {
+								initGraph($selectMunicipios.val());
+							});
+						});
+					});
+				});
+			});
 		});
 	});
 });
