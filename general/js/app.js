@@ -84,7 +84,7 @@ require(['../../static/js/config'], function () {
 				})
 				.attr("text-anchor", "middle")
 				.text(function (d) {
-					return d.data.nombre.length > 6 ? '' : d.data.nombre;
+					return d.data.nombre.length > 6 ? d.data.nombre.substring(0, 5) : d.data.nombre;
 				})
 				.style("fill-opacity", function (d) {
 					return formatPercent(d.data.porcentaje) > 5 ? 1 : 0;
