@@ -1,6 +1,6 @@
 function formatPercent(percent) {
 	return Math.floor(parseFloat(percent) * 100) / 100;
-};
+}
 
 require(['../../static/js/config'], function () {
 
@@ -141,6 +141,7 @@ require(['../../static/js/config'], function () {
 		var initGraph = function(dataFile, callback) {
 			var file = '/json/' + dataFile;
 			d3.json(file, function(error, data) {
+			console.log(data);
 				if(error) {
 					//location.reload();
 					}
@@ -186,7 +187,7 @@ require(['../../static/js/config'], function () {
 		});
 
 		$('#b2014').on('click', function() {
-			initGraph('2014.json');
+			initGraph('TO-00.json');
 		});
 
 		$('#select-total').on('click', function() {
