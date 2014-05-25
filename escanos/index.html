@@ -5,6 +5,7 @@
 	<meta charset="utf-8" />
 
 	<link rel="stylesheet" href="/static/css/common.min.css" type="text/css" media="all" />
+	<link rel="stylesheet" href="/static/libs/magnific-popup/dist/magnific-popup.css" type="text/css" media="all" />
 
 	<style type="text/css">
 		.widget {
@@ -43,6 +44,14 @@
 			width: 50px;
 			height: 50px;
 			margin: 2px;
+			cursor: pointer;
+		}
+		.escanos li > div > span:hover {
+			opacity: 0.5;
+		}
+		.persoa img {
+			float: left;
+			margin-right: 20px;
 		}
 	</style>
 </head>
@@ -56,7 +65,6 @@
 			<ul id="filtro" class="button-escoller">
 				<li><button data-filter="" class="button button-activo">Mostrar todos</button></li>
 				<li><button data-filter=".genero-M" class="button">Sólo mujeres</button></li>
-				<li><button data-filter=".genero-V" class="button">Sólo hombres</button></li>
 			</ul>
 		</nav>
 

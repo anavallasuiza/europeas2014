@@ -140,11 +140,12 @@ require(['../../static/js/config'], function () {
 
 		var initGraph = function(dataFile, callback) {
 			var file = '/json/' + dataFile;
+
 			d3.json(file, function(error, data) {
-			//console.log(data);
 				if(error) {
-					//location.reload();
-					}
+					console.log(file + ': '+ error);
+				}
+
 				titulo.text(data.data.nombre);
 				votaron.text('Votantes: ' + data.data.censo);
 				novotaron.text('Abstención: ' + data.data.abstencion_numero + ' (' + formatPercent(data.data.abstencion_porcentaje) + '%)');

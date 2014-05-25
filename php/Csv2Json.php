@@ -114,8 +114,8 @@ Class Csv2Json
 
                 $row = $this->setRow(array_values($row), true);
 
-                $data['MU'][$MU] = [
-                    'file' => ('MU-'.$MU.'.json'),
+                $data['MU'][$row['PR'].'-'.$MU] = [
+                    'file' => ('MU-'.$row['PR'].'-'.$MU.'.json'),
                     'data' => $row,
                     'children' => [],
                     'parent' => [
@@ -126,9 +126,9 @@ Class Csv2Json
                 ];
 
                 $data['PR'][$row['PR']]['children'][] = [
-                    'id' => $MU,
+                    'id' => ($row['PR'].'-'.$MU),
                     'nombre' => $row['nombre'],
-                    'json' => ('MU-'.$MU.'.json')
+                    'json' => ('MU-'.$row['PR'].'-'.$MU.'.json')
                 ];
             }
         }
