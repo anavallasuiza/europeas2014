@@ -1,11 +1,56 @@
-body {
-	max-width: 36em;
-	margin: 0 auto;
-	padding: 100px 20px 0;
-	font-family: 'Open Sans', sans-serif;
-	line-height: 1.5;
-	color: #667780;
+@font-face {
+  font-family: 'Fira Sans';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Fira Sans'), local('OpenSans'), url('../fonts/Fira Sans WOFF/FiraSans-Light.woff') format('woff');
 }
+@font-face {
+  font-family: 'Fira Sans';
+  font-style: normal;
+  font-weight: bold;
+  src: local('Fira Sans'), local('OpenSans'), url('../fonts/Fira Sans WOFF/FiraSans-Medium.woff') format('woff');
+}
+
+/* bibliotecas */
+@import url('../libs/csans/csans.css');
+@import url('../libs/csans/ui/csans.ui.buttons.css');
+@import url('../libs/selectize/dist/css/selectize.css');
+@import url('../libs/selectize/dist/css/selectize.bootstrap3.css');
+
+/* Variables */
+:root {
+	--negro: #36393E;
+	--gris-escuro: color(var(--negro), 66);
+	--gris: #F0F1F3;
+	--color-principal: #CAC115;
+}
+
+body {
+	margin: 0 auto;
+	padding: 100px 40px 0;
+	font-family: 'Fira Sans', sans-serif;
+	line-height: 1.5;
+	color: var(--gris-escuro);
+}
+article {
+	max-width: 40em;
+	margin: 0 auto;
+
+	h1 {
+		font-size: 3rem;
+		letter-spacing: -0.015em;
+		line-height: 0.9;
+	}
+	.intro {
+		font-size: 1.4rem;
+		line-height: 1.1;
+	}
+	.body {
+		line-height: 1.2;
+		margin-top: 2em;
+	}
+}
+
 
 img{
 	display: block;
@@ -18,5 +63,10 @@ sup {
 }
 
 a{
-	color: #28b8d8;
+	color: var(--gris-escuro);
+	
+	&:hover {
+		text-decoration: none;
+		color: var(--negro);
+	}
 }
