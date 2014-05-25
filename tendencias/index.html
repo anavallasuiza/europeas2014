@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Elecciones Europeas 2014 - Resultados</title>
+	<title>Elecciones Europeas 2014 - Tendencias Izquierda-Derecha</title>
 	<meta charset="utf-8" />
 
 	<link rel="stylesheet" href="/static/css/common.min.css" type="text/css" media="all" />
@@ -11,31 +11,18 @@
 			font-size: .6em;
 			fill: #fff;
 		}
-		.widget {
-			height: 600px;
-		}
-		.widget figure {
-			margin-top: 80px;
-		}
 		.widget > nav .selectize-control {
 			display: inline-block;
 			width: 25%;
 			vertical-align: middle;
-		}
-		.widget-lenda .percent {
-			margin-right: 10px;
-			background: #EEE;
-			padding: 3px 6px;
-			line-height: 1;
-			border-radius: 5px;
 		}
 	</style>
 </head>
 <body>
 	<article class="widget ly-wrapper">
 		<header>
-			<h1>Resultados generales</h1>
-			<a class="actualizacion" id="actualizado" href="#"></a>
+			<h1>Tendencias Izquierda-Derecha</h1>
+			<div id="actualizado"></div>
 		</header>
 
 		<nav>
@@ -60,21 +47,13 @@
 
 			<figure>
 				<div id="total-viz"></div>
-
-				<figcaption>
-					<!--<div class="widget-opcions">-->
-						<!--<label><input id="abstencion" type="checkbox"> Visualizar Abstención</label>-->
-					<!--</div>-->
-
-					<ul id="totales" class="button-escoller widget-opcions">
-						<li><button id="b2014" class="button button-activo">2014</button></li>
-						<li><button id="b2009" class="button">2009</button></li>
-					</ul>
-				</figcaption>
 			</figure>
+
+			<div class="widget-panel">
+			</div>
 		</div>
 	</article>
 
-	<script data-main="/general/js/app" src="../static/libs/requirejs/require.js" type="text/javascript" charset="utf-8"></script>
+	<script data-main="/tendencias/js/app" src="../static/libs/requirejs/require.js" type="text/javascript" charset="utf-8"></script>
 </body>
 </html>

@@ -6,8 +6,6 @@ require(['../../static/js/config'], function () {
 	'helpers',
 	'selector'
 	], function(d3, $, helpers, selector) {
-		var currentData;
-
 		var titulo = d3.select('#titulo');
 		var votaron = d3.select('#votaron');
 		var novotaron = d3.select('#novotaron');
@@ -63,7 +61,7 @@ require(['../../static/js/config'], function () {
 				})
 				.attr("d", arc)
 				.attr("svg:title", function(d) {
-					return helpers.getInfoPartido(d.data.id, 'nombre', 'Default');
+					return d.data.nombre;
 				})
 				.each(function (d) {
 					this._current = d;
@@ -79,15 +77,14 @@ require(['../../static/js/config'], function () {
 				})
 				.attr("text-anchor", "middle")
 				.text(function (d) {
-					var currentName = helpers.getInfoPartido(d.data.id, 'nombre', 'Default'); 
-					return currentName.length > 6 ? '' : currentName;
+					return d.data.nombre.length > 6 ? '' : d.data.nombre;
 				})
 				.style("fill-opacity", function (d) {
 					return d.data.porcentaje > 5 ? 1 : 0;
 				});
 		};
 
-		var generateTotalTable = function(data){
+		var generateTotalTable = function(data, infoPartidos) {
 			d3.select('#total-table').selectAll('li').remove();
 
 			var total_table = d3.select('#total-table')
@@ -111,48 +108,60 @@ require(['../../static/js/config'], function () {
 					return d.nombre;
 				})
 				.text(function(d) {
-					return helpers.getInfoPartido(d.id, 'nombre', 'Default');
+					return d.nombre;
 				});
 
 			total_partido
 				.append('strong')
-				.attr('class', 'percent datos')
+				.attr('class', 'percent')
 				.text(function(d) {
-					return d.porcentaje + '%';
+					return ' ' + d.porcentaje + '%';
+				});
+
+			total_partido
+				.append('strong')
+				.attr('class', 'tendency')
+				.text(function(d) {
+					return ' [' + infoPartidos[d.id].tendencia + ']';
 				});
 
 			total_partido
 				.append('span')
-				.attr('class', 'diputados datos')
+				.attr('class', 'diputados')
 				.text(function(d) {
-					return d.diputados ? d.diputados + ' esc.' : '';
+					return d.diputados ? d.diputados + ' escaños' : '';
 				});
 		};
 
-		var buildGraph = function() {
-			generateTotalTable(currentData);
-			generateTotalGraph(currentData);
+		var buildGraph = function(data, infoPartidos) {
+			generateTotalTable(data, infoPartidos);
+			generateTotalGraph(data);
 		};
+
 
 		var initGraph = function(dataFile, callback) {
 			var file = '/json/' + dataFile;
-			console.log(file);
-			d3.json(file, function(error, data) {
-				if(error) {
-					location.reload();
+			d3.json('/json/grupos.json', function(infoPartidos) {
+				d3.json(file, function(data) {
+					titulo.text(data.data.nombre);
+					votaron.text('Votantes: ' + data.data.censo);
+					novotaron.text('Abstención: ' + data.data.abstencion_numero + ' (' + data.data.abstencion_porcentaje+ '%)');
+
+					buildGraph(data.data, infoPartidos);
+
+					if (callback) {
+						callback(data.children);
 					}
-				titulo.text(data.data.nombre);
-				votaron.text('Votantes: ' + data.data.censo);
-				novotaron.text('Abstención: ' + data.data.abstencion_numero + ' (' + data.data.abstencion_porcentaje+ '%)');
-
-				currentData = data.data;
-				buildGraph();
-
-				if (callback) {
-					callback(data.children);
-				}
+				});
 			});
 		};
+
+		var sel = d3.select('#totales')
+			.selectAll('button');
+
+		sel.on('click', function() {
+			initGraph(this.value);
+		});
 
 		//Cousas do select
 		var $selectComunidades = $('#select-comunidades');
@@ -161,30 +170,19 @@ require(['../../static/js/config'], function () {
 
 		selector.init($selectComunidades, {
 			labelField: "nombre",
-			valueField: "json",
-			searchField: ["nombre"]
+			valueField: "json"
 		});
 		selector.init($selectProvincias, {
 			labelField: "nombre",
-			valueField: "json",
-			searchField: ["nombre"]
+			valueField: "json"
 		});
 		selector.init($selectMunicipios, {
 			labelField: "nombre",
-			valueField: "json",
-			searchField: ["nombre"]
+			valueField: "json"
 		});
 
 		selector.ocultar($selectProvincias);
 		selector.ocultar($selectMunicipios);
-
-		$('#b2009').on('click', function() {
-			initGraph('2009.json');
-		});
-
-		$('#b2014').on('click', function() {
-			initGraph('2014.json');
-		});
 
 		$('#select-total').on('click', function() {
 			initGraph('TO-00.json', function (datos) {
@@ -204,7 +202,6 @@ require(['../../static/js/config'], function () {
 			d3.text('/json/last', function(data) {
 				var updated = new Date(data);
 				actualizado.text('Actualizado: ' + updated.getHours() + ':'+ (updated.getMinutes()<10 ? '0' : '') + updated.getMinutes());
-				actualizado.attr('href', document.location);
 			});
 
 			selector.replaceOptions($selectComunidades, datos);
