@@ -483,7 +483,7 @@ require(['../../static/js/config'], function () {
 
 			persoas[partido.partido] = {
 				partido: partido.partido,
-				persoas: partido.candidatos.slice(0, partido.escanos)
+				persoas: partido.candidatos.slice(0, escanos[partido.partido])
 			};
 		});
 
