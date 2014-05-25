@@ -12,6 +12,7 @@
   "dependencies": {
     "requirejs": "*",
     "d3": "*",
-    "selectize": "*"
+    "selectize": "*",
+    "csans": "*"
   }
 }
