@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Elecciones Europeas 2014 - Tendencias Izquierda-Derecha</title>
+	<meta charset="utf-8" />
+
+	<link rel="stylesheet" href="/static/css/common.min.css" type="text/css" media="all" />
+
+	<style type="text/css">
+		.label {
+			font-size: .6em;
+			fill: #fff;
+		}
+		.widget > nav .selectize-control {
+			display: inline-block;
+			width: 25%;
+			vertical-align: middle;
+		}
+	</style>
+</head>
+<body>
+	<article class="widget ly-wrapper">
+		<header>
+			<h1>Tendencias Izquierda-Derecha</h1>
+			<div id="actualizado"></div>
+		</header>
+
+		<nav>
+			<button id="select-total" class="button button-principal">España</button>
+			<select id="select-comunidades" placeholder="Selecciona una comunidad"></select>
+			<select id="select-provincias" placeholder="Selecciona una provincia"></select>
+			<select id="select-municipios" placeholder="Selecciona un municipio"></select>
+		</nav>
+
+		<div class="widget-contido ly-2cols">
+			<div>
+				<h2 id="titulo"></h2>
+				<div class="widget-detalles">
+					<div id="votaron"></div>
+					<div id="novotaron"></div>
+				</div>
+
+				<div class="widget-lenda">
+					<ul id="total-table"></ul>
+				</div>
+			</div>
+
+			<figure>
+				<div id="total-viz"></div>
+			</figure>
+
+			<div class="widget-panel">
+			</div>
+		</div>
+	</article>
+
+	<script data-main="/tendencias/js/app" src="../static/libs/requirejs/require.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>
