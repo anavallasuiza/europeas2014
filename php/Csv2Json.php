@@ -206,7 +206,7 @@ Class Csv2Json
             $value['id'] = $value[0];
             $value['nombre'] = $value[1];
             $value['votos'] = $this->int($value[2]);
-            $value['porcentaje'] = $this->int($value[3], 100);
+            $value['porcentaje'] = $this->percent($value[3]);
             $value['diputados'] = $this->int($value[4]);
 
             unset($value[0], $value[1], $value[2], $value[3], $value[4]);
