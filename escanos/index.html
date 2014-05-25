@@ -7,19 +7,27 @@
 	<link rel="stylesheet" href="/static/css/common.min.css" type="text/css" media="all" />
 
 	<style type="text/css">
+		.widget {
+			height: 1100px;
+		}
 		.escanos {
 			width: 100%;
 			list-style: none;
 			margin: 0;
 			padding: 0 20px;
+			box-sizing: border-box;
+			-moz-box-sizing: border-box;
 		}
 		.escanos h2 {
 			float: left;
 			width: 150px;
 			margin-right: 10px;
+			font-size: 1.6rem !important;
 		}
+
 		.escanos li {
 			padding: 10px 0;
+			border-bottom: solid 1px #DDD;
 		}
 		.escanos li::after {
 			content: "";
@@ -45,221 +53,16 @@
 		</header>
 
 		<nav>
-			<ul class="button-escoller">
-				<li><button class="button button-activo">Mostrar todos</button></li>
-				<li><button class="button">Sólo mujeres</button></li>
-				<li><button class="button">Sólo hombres</button></li>
+			<ul id="filtro" class="button-escoller">
+				<li><button data-filter="" class="button button-activo">Mostrar todos</button></li>
+				<li><button data-filter=".genero-M" class="button">Sólo mujeres</button></li>
+				<li><button data-filter=".genero-V" class="button">Sólo hombres</button></li>
 			</ul>
 		</nav>
 
 		<div class="widget-contido">
 			<ul id="lista-escanos" class="escanos">
-				<li>
-					<h2>PP</h2>
-
-					<div>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-					</div>
-				</li>
-				<li>
-					<h2>PSOE</h2>
-
-					<div>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-					</div>
-				</li>
-				<li>
-					<h2>PSOE</h2>
-					
-					<div>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-					</div>
-				</li>
-				<li>
-					<h2>PSOE</h2>
-					
-					<div>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-					</div>
-				</li>
-				<li>
-					<h2>PSOE</h2>
-					
-					<div>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-					</div>
-				</li>
-				<li>
-					<h2>PSOE</h2>
-					
-					<div>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-					</div>
-				</li>
-				<li>
-					<h2>PSOE</h2>
-					
-					<div>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-					</div>
-				</li>
-				<li>
-					<h2>PSOE</h2>
-					
-					<div>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-						<span><img width="50" height="50" src="fotos_candidatos/C1_javier_nart.png"></span>
-					</div>
-				</li>
-				<li>
-					<h2>PSOE</h2>
-					
-					<div>
-						<span><img width="50" height="50" src="fotos_candidatos/BILDU1_josu_juaristi.png"></span>
-					</div>
-				</li>
-			</table>
+			</ul>
 		</div>
 	</article>
 
