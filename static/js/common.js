@@ -5,6 +5,15 @@ define([], function() {
 		percent: function(total, value) {
 			return Math.floor((value * 100) / total);
 		},
+		getInfoPartido: function (id, nome, valorDefault) {
+			var partido = helpers.info[id];
+
+			if (partido) {
+				return partido[nome] || valorDefault;
+			}
+
+			return valorDefault;
+		},
 		info: {
 			"0048": {
 				codigo: "0048",
