@@ -20,37 +20,37 @@
     },
     "0003": {
         codigo: "0003",
-        nombre: "P.P.",
+        nombre: "PP",
         color: "3333FF",
         logo: 
     },
     "0020": {
         codigo: "0020",
-        nombre: "I.Fem",
+        nombre: "In.Fem.",
         color: "9966FF",
         logo: 
     },
     "0017": {
         codigo: "0017",
-        nombre: "CEU",
+        nombre: "CpEU",
         color: "33FF00",
         logo: 
     },
     "0058": {
         codigo: "0058",
-        nombre: "RRUE",
+        nombre: "Europa Problema",
         color: "990033",
         logo: 
     },
     "0002": {
         codigo: "0002",
-        nombre: "F.A.C.",
+        nombre: "Foro FAC",
         color: "66CCFF",
         logo: 
     },
     "0018": {
         codigo: "0018",
-        nombre: "ACNV-BAR-PRAO-R.E.P.O-UNIO",
+        nombre: "Proyecto Europa",
         color: "FFCC99",
         logo: 
     },
@@ -62,7 +62,7 @@
     },
     "0055": {
         codigo: "0055",
-        nombre: "LA IZQUIERDA PLURAL (*)",
+        nombre: "IU-IP",
         color: "CC0000",
         logo: 
     },
@@ -74,49 +74,49 @@
     },
     "0005": {
         codigo: "0005",
-        nombre: "M.C.R.",
-        color: "333333",
+        nombre: "Corriente Roja",
+        color: "CC0033",
         logo: 
     },
     "0043": {
         codigo: "0043",
-        nombre: "EPDD",
+        nombre: "ERC-EPDD",
         color: "CC6633",
         logo: 
     },
     "0050": {
         codigo: "0050",
-        nombre: "ALTER",
+        nombre: "AlRep",
         color: "990033",
         logo: 
     },
     "0011": {
         codigo: "0011",
-        nombre: "C's",
+        nombre: "Cs",
         color: "FF9933",
         logo: 
     },
     "0042": {
         codigo: "0042",
-        nombre: "PIRATAS",
+        nombre: "Piratas",
         color: "99CC66",
         logo: 
     },
     "0047": {
         codigo: "0047",
-        nombre: "ImpulsoSocial",
+        nombre: "Impulso Social",
         color: "333333",
         logo: 
     },
     "0040": {
         codigo: "0040",
-        nombre: "M.S.R.",
+        nombre: "MSR",
         color: "666666",
         logo: 
     },
     "0067": {
         codigo: "0067",
-        nombre: "RECORTES CERO",
+        nombre: "Recortes 0",
         color: "990033",
         logo: 
     },
@@ -128,25 +128,25 @@
     },
     "0052": {
         codigo: "0052",
-        nombre: "PRIMAVERA EUROPEA",
+        nombre: "Primavera Europea",
         color: "33FF66",
         logo: 
     },
     "0049": {
         codigo: "0049",
-        nombre: "LPD",
+        nombre: "Bildu-BNG-OPD",
         color: "339900",
         logo: 
     },
     "0021": {
         codigo: "0021",
-        nombre: "EXTREMADURA UNIDA",
+        nombre: "ExU",
         color: "FFCC99",
         logo: 
     },
     "0038": {
         codigo: "0038",
-        nombre: "PARTIDO ANDALUCISTA",
+        nombre: "PA",
         color: "FFCC99",
         logo: 
     },
@@ -158,7 +158,7 @@
     },
     "0025": {
         codigo: "0025",
-        nombre: "EB",
+        nombre: "EEB",
         color: "CCCCC",
         logo: 
     },
@@ -170,61 +170,61 @@
     },
     "0045": {
         codigo: "0045",
-        nombre: "PODEMOS",
+        nombre: "Podemos",
         color: "FF6600",
         logo: 
     },
     "0016": {
         codigo: "0016",
-        nombre: "P-LIB",
+        nombre: "P-Lib",
         color: "FFFF66",
         logo: 
     },
     "0009": {
         codigo: "0009",
-        nombre: "PT",
+        nombre: "PTerra",
         color: "99CC99",
         logo: 
     },
     "0022": {
         codigo: "0022",
-        nombre: "FE de las JONS",
+        nombre: "FE JONS",
         color: "333333",
         logo: 
     },
     "0044": {
         codigo: "0044",
-        nombre: "LEM",
+        nombre: "España en Marcha",
         color: "666666",
         logo: 
     },
     "0037": {
         codigo: "0037",
-        nombre: "P.C.P.E.",
+        nombre: "PCPE",
         color: "990033",
         logo: 
     },
     "0039": {
         codigo: "0039",
-        nombre: "D.N.",
+        nombre: "DN",
         color: "666666",
         logo: 
     },
     "0028": {
         codigo: "0028",
-        nombre: "PARTIDO X",
+        nombre: "P X",
         color: "CCCC99",
         logo: 
     },
     "0041": {
         codigo: "0041",
-        nombre: "MOVIMIENTO RED",
+        nombre: "M RED",
         color: "CCCC99",
         logo: 
     },
     "0186": {
         codigo: "0186",
-        nombre: "DISCAPACITADOS Y ENFERMEDADES RARAS",
+        nombre: "D y Enf R",
         color: "CCCC99",
         logo: 
     },
