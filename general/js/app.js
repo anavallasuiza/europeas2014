@@ -141,7 +141,7 @@ require(['../../static/js/config'], function () {
 		var initGraph = function(dataFile, callback) {
 			var file = '/json/' + dataFile;
 			d3.json(file, function(error, data) {
-			console.log(data);
+			//console.log(data);
 				if(error) {
 					//location.reload();
 					}
