@@ -1,9 +1,15 @@
 <?php
 Class Csv2Json
 {
+    private $proyections = [];
     private $dir = '';
 
-    public function jsonDirectory ($dir)
+    public function setProyections($proyections)
+    {
+        $this->proyections = $proyections;
+    }
+
+    public function jsonDirectory($dir)
     {
         if (!is_dir($dir)) {
             throw new Exception($dir.' directory not exists');
@@ -18,9 +24,9 @@ Class Csv2Json
      * @param  dir      Directorio base que contiene los ficheros
      * @return boolean
      */
-    public function load($dir)
+    public function results($dir, $name)
     {
-        $array = $this->file2array($dir.'/TXTOTPE99INI/TXTOTPE99INI');
+        $array = $this->file2array($dir.'/TXTOTPE99'.$name.'/TXTOTPE99'.$name);
 
         $data = [];
 
@@ -95,7 +101,7 @@ Class Csv2Json
             ];
         }
 
-        foreach (glob($dir.'/TXMUNPE99INI/*') as $file) {
+        foreach (glob($dir.'/TXMUNPE99'.$name.'/*') as $file) {
             $array = $this->file2array($file);
 
             foreach ($array as $row) {
@@ -190,7 +196,7 @@ Class Csv2Json
             $value['id'] = $value[0];
             $value['nombre'] = $value[1];
             $value['votos'] = $this->int($value[2]);
-//            $value['porcentaje'] = $this->int($value[3], 100);
+            $value['porcentaje'] = $this->int($value[3], 100);
             $value['diputados'] = $this->int($value[4]);
 
             unset($value[0], $value[1], $value[2], $value[3], $value[4]);
@@ -211,7 +217,7 @@ Class Csv2Json
             'id' => '-1',
             'nombre' => 'Blanco',
             'votos' => $this->int($row[13]),
-//            'porcentaje' => $this->int($row[14], 100),
+            'porcentaje' => $this->int($row[14], 100),
             'diputados' => 0
         ];
 
@@ -219,7 +225,7 @@ Class Csv2Json
             'id' => '-2',
             'nombre' => 'Nulos',
             'votos' => $this->int($row[15]),
-//            'porcentaje' => $this->int($row[16], 100),
+            'porcentaje' => $this->int($row[16], 100),
             'diputados' => 0
         ];
 
@@ -227,16 +233,10 @@ Class Csv2Json
             'id' => '-3',
             'nombre' => 'Otros',
             'votos' => array_sum(array_column($others, 'votos')),
-//            'porcentaje' => array_sum(array_column($others, 'porcentaje')),
+            'porcentaje' => array_sum(array_column($others, 'porcentaje')),
             'diputados' => array_sum(array_column($others, 'diputados')),
             'otros' => $others
         ];
-
-        $max = array_sum(array_column($groups, 'votos'));
-
-        array_walk($groups, function (&$value) use ($max) {
-            $value['porcentaje'] = round(($value['votos'] * 100) / $max);
-        });
 
         return [
             'tipo' => $row[0],
@@ -254,8 +254,8 @@ Class Csv2Json
         ];
     }
 
-    public function int ($value, $max = 0)
+    public function int($value, $max = 0)
     {
-        return rand(0, $max ?: 100000);
+        return (int)$value;
     }
 }
