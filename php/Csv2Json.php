@@ -200,9 +200,9 @@ Class Csv2Json
         ]);
 
         array_walk($groups, function (&$value) {
-            $value[2] = (int)$value[2];
-            $value[3] = (int)$value[3];
-            $value[4] = (int)$value[4];
+            $value[2] = $this->int($value[2]);
+            $value[3] = $this->int($value[3], 100);
+            $value[4] = $this->int($value[4]);
         });
 
         return [
@@ -210,14 +210,19 @@ Class Csv2Json
             'CM' => $row[1],
             'PR' => $row[2],
             'nombre' => $row[4],
-            'censo' => (int)$row[6],
-            'escrutado_numero' => (int)$row[7],
-            'escrutado_porcentaje' => (int)$row[8],
-            'votantes_numero' => (int)$row[9],
-            'votantes_porcentaje' => (int)$row[10],
-            'abstencion_numero' => (int)$row[11],
-            'abstencion_porcentaje' => (int)$row[12],
+            'censo' => $this->int($row[6]),
+            'escrutado_numero' => $this->int($row[7]),
+            'escrutado_porcentaje' => $this->int($row[8], 100),
+            'votantes_numero' => $this->int($row[9]),
+            'votantes_porcentaje' => $this->int($row[10], 100),
+            'abstencion_numero' => $this->int($row[11]),
+            'abstencion_porcentaje' => $this->int($row[12], 100),
             'grupos' => $groups
         ];
+    }
+
+    public function int ($value, $max = 0)
+    {
+        return rand(0, $max ?: 100);
     }
 }
