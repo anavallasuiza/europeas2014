@@ -205,16 +205,16 @@ Class Csv2Json
         $groups[] = [
             'id' => '00',
             'nombre' => 'Blanco',
-            'votos' => $row[13],
-            'porcentaje' => $row[14],
+            'votos' => $this->int($row[13]),
+            'porcentaje' => $this->int($row[14], 100),
             'diputados' => 0
         ];
 
         $groups[] = [
             'id' => '00',
             'nombre' => 'Nulos',
-            'votos' => $row[15],
-            'porcentaje' => $row[16],
+            'votos' => $this->int($row[15]),
+            'porcentaje' => $this->int($row[16], 100),
             'diputados' => 0
         ];
 

@@ -21,8 +21,8 @@ require(['../../static/js/config'], function () {
 		var degree = Math.PI/180;
 
 		var pie = d3.layout.pie()
-					.sort(null)
 					.value(function(d) { return d.votos; })
+					.sort(d3.ascending)
 					.startAngle(-90 * degree)
 					.endAngle(90 * degree);
 
@@ -49,22 +49,25 @@ require(['../../static/js/config'], function () {
 
 		var generateTotalGraph = function(data){
 
-			pieLabel.text(data.escrutado + '% escrutado');
+			pieLabel.text(data.escrutado_porcentaje + '% escrutado');
 
 			arcs = arc_grp.selectAll("path")
-				.data(pie(data.datos));
+				.data(pie(data.grupos));
 
 			arcs.enter().append("svg:path")
 				.attr("stroke", "white")
 				.attr("stroke-width", 0.5)
-				.style("fill", function(d) { return helpers.logos[d.data.partido.toLowerCase()].color; })
+				.style("fill", function(d) { 
+					return '#ff9900'; 
+					//return helpers.logos[d.id].color || '#ff9900'; 
+				})
 				.attr("d", arc)
 				.each(function (d) {
 					this._current = d;
 				});
 
 			sliceLabel = label_group.selectAll("text")
-				.data(pie(data.datos));
+				.data(pie(data.grupos));
 
 			sliceLabel.enter().append("svg:text")
 				.attr("class", "label")
@@ -73,7 +76,10 @@ require(['../../static/js/config'], function () {
 				})
 				.attr("text-anchor", "middle")
 				.text(function (d) {
-					return d.data.partido;
+					return d.data.nombre;
+				})
+				.style("fill-opacity", function (d) {
+					return d.data.porcentaje > 10 ? 1 : 0;
 				});
 		};
 
@@ -82,7 +88,7 @@ require(['../../static/js/config'], function () {
 
 			var total_table = d3.select('#total-table')
 				.selectAll('li')
-				.data(data.datos)
+				.data(data.grupos)
 				.enter();
 
 			var total_partido = total_table.append('li');
@@ -91,30 +97,30 @@ require(['../../static/js/config'], function () {
 				.append('span')
 				.attr('class', 'logo')
 				.text(function(d) {
-					return helpers.logos[d.partido.toLowerCase().logo] || 'Pon logo';
+					return helpers.logos[d.id.logo] || 'placeholder.png';
 				});
 
 			total_partido
 				.append('span')
 				.attr('class', 'color')
 				.style('background', function (d) {
-					return helpers.logos[d.partido.toLowerCase()].color;
+					return '#ccc';
+					//return helpers.logos[d.id].color;
 				});
 
 			total_partido
 				.append('strong')
 				.attr('class', 'nome')
 				.text(function(d) {
-					return d.partido;
+					return d.nombre;
 				});
 
 			total_partido
 				.append('span')
 				.attr('class', 'datos')
 				.text(function(d) {
-					var votes_percent = helpers.percent(+currentData.votos_totales, +d.votos) + '%';
 					var escanos = d.escanos ? d.escanos + ' escaños' : '';
-					return votes_percent + ' ' + escanos;
+					return d.porcentaje + '% ' + escanos;
 				});
 		};
 
@@ -125,15 +131,15 @@ require(['../../static/js/config'], function () {
 
 		var updateGraph = function() {
 			generateTotalTable(currentData);
-			pieLabel.text(currentData.escrutado + '% escrutado');
+			pieLabel.text(currentData.escrutado_porcentaje + '% escrutado');
 
 			if(abstencion.property('checked')) {
-				var newData = currentData.datos.concat([{'partido': 'Abstencion', 'votos': +currentData.abstencion}]);
+				var newData = currentData.grupos.concat([{'partido': 'Abstencion', 'votos': +currentData.abstencion_numero}]);
 				arcs.data(pie(newData));
 				sliceLabel.data(pie(newData));
 			} else {
-				arcs.data(pie(currentData.datos));
-				sliceLabel.data(pie(currentData.datos));
+				arcs.data(pie(currentData.grupos));
+				sliceLabel.data(pie(currentData.grupos));
 			}
 			arcs.transition().duration(500).attrTween("d", function (a) {
 				var i = d3.interpolate(this._current, a);
@@ -148,23 +154,23 @@ require(['../../static/js/config'], function () {
 					return "translate(" + arc.centroid(d) + ")";
 				})
 				.style("fill-opacity", function (d) {
-					return d.value === 0 ? 1e-6 : 1;
+					return d.data.porcentaje > 10 ? 1 : 0;
 				});
 
 		};
 
 		var initGraph = function(dataFile) {
-			var file = '/general/data/' + dataFile;
+			var file = '/json/' + dataFile;
 			d3.json(file, function(data) {
-				titulo.text(data.titulo);
-				votaron.text('Votantes: ' + data.votantes_convocados);
-				novotaron.text('Abstención: ' + data.abstencion + ' (' + helpers.percent(data.votantes_convocados, data.abstencion) + '%)');
+				titulo.text(data.data.nombre);
+				votaron.text('Votantes: ' + data.data.censo);
+				novotaron.text('Abstención: ' + data.data.abstencion_numero + ' (' + data.data.abstencion_porcentaje+ '%)');
 
 				if(currentData) {
-					currentData = data;
+					currentData = data.data;
 					updateGraph();
 				} else {
-					currentData = data;
+					currentData = data.data;
 					buildGraph();
 				}
 			});
@@ -182,7 +188,19 @@ require(['../../static/js/config'], function () {
 			updateGraph();
 		});
 
-		initGraph('totales.json');
+		initGraph('TO-00.json');
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
