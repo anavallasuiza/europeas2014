@@ -131,7 +131,20 @@ label {
 		padding: 20px;
 		border-bottom: dotted 5px var(--gris);
 	}
+	> footer {
+		font-size: 0.85rem;
+		color: var(--gris-escuro);
+		padding: 10px 20px 20px;
+		a {
+			color: var(--negro);
+		}
+	}
 	figure {
+		text-align: center;
+		svg, img {
+			display: block;
+			margin: 0 auto;
+		}
 		figcaption {
 			margin-top: 20px;
 		}
@@ -150,7 +163,7 @@ label {
 	}
 	.widget-detalles {
 		color: var(--gris-escuro);
-		font-size: 0.8em;
+		font-size: 0.85em;
 		margin-top: 1em;
 	}
 	.widget-lenda {
@@ -182,7 +195,10 @@ label {
 		.datos {
 			color: var(--gris-escuro);
 			display: inline-block;
-			font-size: 0.8em;
+			font-size: 0.85em;
+		}
+		.nome + .datos {
+			margin-left: 0.5em;
 		}
 
 		.widget-lenda-opcions {
