@@ -206,11 +206,15 @@ label {
 		.nome + .datos {
 			margin-left: 0.5em;
 		}
+	}
 
-		.widget-lenda-opcions {
-			border-top: solid 1px color(var(--gris), light:-5);
-			margin-top: 10px;
-			padding-top: 10px;
+	.widget-opcions {
+		border-top: solid 1px color(var(--gris), light:-5);
+		margin-top: 10px;
+		padding-top: 10px;
+
+		+ .widget-opcions {
+			border-top: 0;
 		}
 	}
 }
