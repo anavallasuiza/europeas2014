@@ -87,6 +87,7 @@ Class Csv2Json
             $data['PR'][$row['PR']] = [
                 'file' => ('PR-'.$row['PR'].'.json'),
                 'data' => $row,
+                'children' => [],
                 'parent' => [
                     'id' => $row['CM'],
                     'nombre' => $data['CM'][$row['CM']]['data']['nombre'],
@@ -111,7 +112,7 @@ Class Csv2Json
 
                 array_unshift($row, 'MU');
 
-                $row = $this->setRow(array_values($row));
+                $row = $this->setRow(array_values($row), true);
 
                 $data['MU'][$MU] = [
                     'file' => ('MU-'.$MU.'.json'),
@@ -134,16 +135,6 @@ Class Csv2Json
 
         foreach ($data as $blocks) {
             foreach ($blocks as $values) {
-                /*
-                uasort($values, function ($a, $b) {
-                    return ($a['data']['nombre'] < $b['data']['nombre']) ? -1 : 1;
-                });
-
-                uasort($values['children'], function ($a, $b) {
-                    return ($a['nombre'] < $b['nombre']) ? -1 : 1;
-                });
-                */
-
                 $this->saveJson($values['file'], $values);
             }
         }
@@ -195,9 +186,14 @@ Class Csv2Json
      * @param  row      Array con la linea
      * @return array
      */
-    public function setRow($row)
+    public function setRow($row, $short = false)
     {
-        $groups = array_chunk(array_slice($row, 18), 5);
+        if ($short) {
+            $groups = array_chunk(array_slice($row, 17), 4);
+        } else {
+            $groups = array_chunk(array_slice($row, 18), 5);
+        }
+
         $groups = array_filter($groups, function ($value) {
             return (int)$value[0];
         });
@@ -207,7 +203,10 @@ Class Csv2Json
             $value['nombre'] = $value[1];
             $value['votos'] = $this->int($value[2]);
             $value['porcentaje'] = $this->percent($value[3]);
-            $value['diputados'] = $this->int($value[4]);
+
+            if (isset($value[4])) {
+                $value['diputados'] = $this->int($value[4]);
+            }
 
             unset($value[0], $value[1], $value[2], $value[3], $value[4]);
         });
