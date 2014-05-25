@@ -249,8 +249,8 @@ Class Csv2Json
 
         return [
             'tipo' => $row[0],
-            'CM' => $row[1],
-            'PR' => $row[2],
+            'CM' => $row[$short ? 2 : 1],
+            'PR' => $row[$short ? 1 : 2],
             'nombre' => $row[4],
             'censo' => $this->int($row[6]),
             'escrutado_numero' => $this->int($row[7]),
