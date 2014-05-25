@@ -80,7 +80,7 @@ require(['../../static/js/config'], function () {
 				.attr("text-anchor", "middle")
 				.text(function (d) {
 					var currentName = helpers.getInfoPartido(d.data.id, 'nombre', 'Default'); 
-					return currentName.length > 6 ? '' : currentName;
+					return currentName.length > 6 ? currentName.substring(0, 5) : currentName;
 				})
 				.style("fill-opacity", function (d) {
 					return d.data.porcentaje > 5 ? 1 : 0;
