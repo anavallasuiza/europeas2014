@@ -253,7 +253,7 @@
 				"sexo": "M" 
 	},
 	{ 
-		"partido": "BILDU", 
+		"partido": "Bildu-BNG-OPG", 
 		"candidatos": [ 
 			{ 
 				"nome": "Josu Juaristi Abaunz", 
@@ -263,7 +263,7 @@
 		]		
 	},
 	{ 
-		"partido": "CIUDADANOS - PARTIDO DE LA CIUDADANÍA", 
+		"partido": "CS", 
 		"candidatos": [ 
 			{ 
 				"nome": "Javier Nart Peñalver", 
@@ -283,7 +283,7 @@
 		]		
 	},
 	{ 
-		"partido": "COALICIÓN POR EUROPA", 
+		"partido": "CpEU", 
 		"candidatos": [ 
 			{ 
 				"nome": "Ramón Tremosa i Balcells", 
@@ -303,7 +303,7 @@
 		]		
 	},
 	{ 
-		"partido": "L'ESQUERRA PEL DRET A DECIDIR", 
+		"partido": "EPDD", 
 		"candidatos": [ 
 			{ 
 				"nome": "Josep María Terricabras i Nogueras", 
@@ -324,7 +324,7 @@
 		]		
 	},
 	{ 
-		"partido": "IZQUIERDA UNIDA, INICIATIVA PER CATALUNYA VERDS, ESQUERRA UNIDA I ALTERNATIVA, ANOVA-IRMANDADE NACIONALISTA, ESPAZO ECOSOCIALISTA GALEGO, BATZARRE-ASAMBLEA DE IZQUIERDAS, FEDERACION LOS VERDES, OPCIÓ VERDA-ELS VERDS, GIRA MADRID-LOS VERDES, CONSTRUYENDO LA IZQUIERDA-ALTERNATIVA SOCIALISTA, EZKERREKO EKIMENA-ETORKIZUNA IRATZARRI: LA IZQUIERDA PLURAL
+		"partido": "IU-IP
 
 ", 
 		"candidatos": [ 
@@ -385,12 +385,12 @@
 			}
 			{ 
 				"nome": "Carlos Jiménez Villarejo", 
-				"foto": "PODEMOS3_carlos_jimenez.png", 
+				"foto": "PODEMOS3_carlos_jimenez.jpg", 
 				"sexo": "V" 
 			}
 			{ 
 				"nome": "María Dolores Sánchez Caldentey", 
-				"foto": "PODEMOS4_mariadolores_sanchez.png", 
+				"foto": "PODEMOS4_mariadolores_sanchez.jpg", 
 				"sexo": "M" 
 			}
 		]		
@@ -407,7 +407,7 @@
 		]		
 	},
 	{ 
-		"partido": "UNIÓN, PROGRESO Y DEMOCRACIA", 
+		"partido": "UPyD", 
 		"candidatos": [ 
 			{ 
 				"nome": "Francisco Sosa Wagner", 
