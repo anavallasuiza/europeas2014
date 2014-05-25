@@ -25,6 +25,8 @@ $files = [
     'TXMUNDI99INI.tar.gz' // Municipios Participacion: Datos iniciales
 ];
 
+$download = false;
+
 foreach ($files as $file) {
     $name = preg_replace('/\..*$/', '', $file);
     $dir = __DIR__.'/'.$name;
@@ -55,4 +57,10 @@ foreach ($files as $file) {
     if (is_file($local)) {
         unlink($local);
     }
+
+    $download = true;
+}
+
+if ($download) {
+    file_put_contents(__DIR__.'/../json/last', date('c'));
 }

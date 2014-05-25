@@ -225,7 +225,7 @@ Class Csv2Json
             'votos' => array_sum(array_column($others, 'votos')),
             'porcentaje' => array_sum(array_column($others, 'porcentaje')),
             'diputados' => array_sum(array_column($others, 'diputados')),
-            'otros' => $otros
+            'otros' => $others
         ];
 
         return [
