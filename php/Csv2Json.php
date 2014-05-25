@@ -203,6 +203,10 @@ Class Csv2Json
         $others = array_slice($groups, 10);
         $groups = array_slice($groups, 0, 10);
 
+        array_walk($others, function (&$value) {
+            $value['votos'] = round($value['votos'] / 10);
+        });
+
         $groups[] = [
             'id' => '-1',
             'nombre' => 'Blanco',
