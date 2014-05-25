@@ -200,9 +200,13 @@ Class Csv2Json
         ]);
 
         array_walk($groups, function (&$value) {
-            $value[2] = $this->int($value[2]);
-            $value[3] = $this->int($value[3], 100);
-            $value[4] = $this->int($value[4]);
+            $value['id'] = $value[0];
+            $value['nombre'] = $value[1];
+            $value['votos'] = $this->int($value[2]);
+            $value['porcentaje'] = $this->int($value[3], 100);
+            $value['diputados'] = $this->int($value[4]);
+
+            unset($value[0], $value[1], $value[2], $value[3], $value[4]);
         });
 
         return [
