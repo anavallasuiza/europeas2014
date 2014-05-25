@@ -20,6 +20,131 @@ require(['../../static/js/config'], function () {
 
 		var data = [
 			{ 
+				"partido": "PP", 
+				"candidatos": [ 
+					{ 
+						"nome": "Miguel Arias Cañete", 
+						"foto": "PP1_arias_canete.jpg", 
+						"sexo": "V" 
+					},
+					{ 
+						"nome": "Esteban González Pons", 
+						"foto": "PP2_gonzalez_pons.jpg", 
+						"sexo": "V" 
+					},
+					{ 
+						"nome": "María Teresa Jiménez Becerril Barrio", 
+						"foto": "PP3_jimenez_becerril.jpg", 
+						"sexo": "M" 
+					},
+					{
+						"nome": "Luis de Grandes Pascual", 
+						"foto": "PP4_degrandes_pascual.jpg", 
+						"sexo": "V" 
+					},
+					{
+						"nome": "Pilar del Castillo Vera", 
+						"foto": "PP5_delcastillo_vera.jpg", 
+						"sexo": "M" 
+					},
+					{ 
+						"nome": "Ramón Luis Valcárcel Siso", 
+						"foto": "PP6_valcarcel_siso.jpg", 
+						"sexo": "V" 
+					},
+					{ 
+						"nome": "María Rosa Estarás Ferragut", 
+						"foto": "PP7_estaras_ferragut.jpg", 
+						"sexo": "M" 
+					},
+					{ 
+						"nome": "Francisco José Millán Mon", 
+						"foto": "PP8_millan_mon.jpg", 
+						"sexo": "V" 
+					},
+					{ 
+						"nome": "Pablo Zalba Bidegain", 
+						"foto": "PP9_zalba_bidegain.jpg", 
+						"sexo": "V" 
+					},
+					{ 
+						"nome": "Verónica Lope Fontagne", 
+						"foto": "PP10_lope_fontagne.jpg", 
+						"sexo": "M" 
+					},
+					{ 
+						"nome": "Antonio López-Istúriz White", 
+						"foto": "PP11_lopezisturiz_white.jpg", 
+						"sexo": "V" 
+					},
+					{ 
+						"nome": "Santiago Fisas Ayxela", 
+						"foto": "PP12_fisas_ayxela.jpg", 
+						"sexo": "V" 
+					},
+					{ 
+						"nome": "Gabriel Mato Adrover", 
+						"foto": "PP13_mato_adrover.jpg", 
+						"sexo": "V" 
+					},
+					{ 
+						"nome": "María del Pilar Ayuso González", 
+						"foto": "PP14_ayuso_gonzalez.jpg", 
+						"sexo": "M" 
+					},
+					{ 
+						"nome": "María Esther Herranz García", 
+						"foto": "PP15_herranz_garcia.jpg", 
+						"sexo": "M" 
+					},
+					{ 
+						"nome": "Agustín Díaz de Mera García Consuegra", 
+						"foto": "PP16_diazdemera_garciaconsuegra.jpg", 
+						"sexo": "V" 
+					},
+					{ 
+						"nome": "Carlos Iturgaiz Angulo", 
+						"foto": "PP17_iturgaiz_angulo.jpg", 
+						"sexo": "V" 
+					},
+					{ 
+						"nome": "José Ignacio Salafranca Sánchez-Neira", 
+						"foto": "PP18_salafranca_sanchezneira.jpg", 
+						"sexo": "V" 
+					},
+					{ 
+						"nome": "María Auxiliadora Correa Zamora", 
+						"foto": "PP19_correa_zamora.jpg", 
+						"sexo": "M" 
+					},
+					{ 
+						"nome": "Eva Ortiz Vilella", 
+						"foto": "PP20_ortiz_vilella.jpg", 
+						"sexo": "M" 
+					},
+					{ 
+						"nome": "Pablo Arias Echeverría", 
+						"foto": "PP21_arias_echeverria.jpg", 
+						"sexo": "V" 
+					},
+					{ 
+						"nome": "Salvador Garriga Polledo", 
+						"foto": "PP22_garriga_polledo.jpg", 
+						"sexo": "V" 
+					},
+					{ 
+						"nome": "Gabino Puche Rodríguez-Acosta", 
+						"foto": "PP23_puche_rodriguezacosta.jpg", 
+						"sexo": "V" 
+					},
+					{ 
+						"nome": "María Luisa Peón Pérez", 
+						"foto": "PP24_peon_perez.jpg", 
+						"sexo": "M" 
+					}
+				]
+			},
+			{ 
 				"partido": "PSOE", 
 				"candidatos": [ 
 					{ 
@@ -150,197 +275,6 @@ require(['../../static/js/config'], function () {
 				] 
 			},
 			{ 
-				"partido": "PP", 
-				"candidatos": [ 
-					{ 
-						"nome": "Miguel Arias Cañete", 
-						"foto": "PP1_arias_canete.jpg", 
-						"sexo": "V" 
-					},
-					{ 
-						"nome": "Esteban González Pons", 
-						"foto": "PP2_gonzalez_pons.jpg", 
-						"sexo": "V" 
-					},
-					{ 
-						"nome": "María Teresa Jiménez Becerril Barrio", 
-						"foto": "PP3_jimenez_becerril.jpg", 
-						"sexo": "M" 
-					},
-					{
-						"nome": "Luis de Grandes Pascual", 
-						"foto": "PP4_degrandes_pascual.jpg", 
-						"sexo": "V" 
-					},
-					{
-						"nome": "Pilar del Castillo Vera", 
-						"foto": "PP5_delcastillo_vera.jpg", 
-						"sexo": "M" 
-					},
-					{ 
-						"nome": "Ramón Luis Valcárcel Siso", 
-						"foto": "PP6_valcarcel_siso.jpg", 
-						"sexo": "V" 
-					},
-					{ 
-						"nome": "María Rosa Estarás Ferragut", 
-						"foto": "PP7_estaras_ferragut.jpg", 
-						"sexo": "M" 
-					},
-					{ 
-						"nome": "Francisco José Millán Mon", 
-						"foto": "PP8_millan_mon.jpg", 
-						"sexo": "V" 
-					},
-					{ 
-						"nome": "Pablo Zalba Bidegain", 
-						"foto": "PP9_zalba_bidegain.jpg", 
-						"sexo": "V" 
-					},
-					{ 
-						"nome": "Verónica Lope Fontagne", 
-						"foto": "PP10_lope_fontagne.jpg", 
-						"sexo": "M" 
-					},
-					{ 
-						"nome": "Antonio López-Istúriz White", 
-						"foto": "PP11_lopezisturiz_white.jpg", 
-						"sexo": "V" 
-					},
-					{ 
-						"nome": "Santiago Fisas Ayxela", 
-						"foto": "PP12_fisas_ayxela.jpg", 
-						"sexo": "V" 
-					},
-					{ 
-						"nome": "Gabriel Mato Adrover", 
-						"foto": "PP13_mato_adrover.jpg", 
-						"sexo": "V" 
-					},
-					{ 
-						"nome": "María del Pilar Ayuso González", 
-						"foto": "PP14_ayuso_gonzalez.jpg", 
-						"sexo": "M" 
-					},
-					{ 
-						"nome": "María Esther Herranz García", 
-						"foto": "PP15_herranz_garcia.jpg", 
-						"sexo": "M" 
-					},
-					{ 
-						"nome": "Agustín Díaz de Mera García Consuegra", 
-						"foto": "PP16_diazdemera_garciaconsuegra.jpg", 
-						"sexo": "V" 
-					},
-					{ 
-						"nome": "Carlos Iturgaiz Angulo", 
-						"foto": "PP17_iturgaiz_angulo.jpg", 
-						"sexo": "V" 
-					},
-					{ 
-						"nome": "José Ignacio Salafranca Sánchez-Neira", 
-						"foto": "PP18_salafranca_sanchezneira.jpg", 
-						"sexo": "V" 
-					},
-					{ 
-						"nome": "María Auxiliadora Correa Zamora", 
-						"foto": "PP19_correa_zamora.jpg", 
-						"sexo": "M" 
-					},
-					{ 
-						"nome": "Eva Ortiz Vilella", 
-						"foto": "PP20_ortiz_vilella.jpg", 
-						"sexo": "M" 
-					},
-					{ 
-						"nome": "Pablo Arias Echeverría", 
-						"foto": "PP21_arias_echeverria.jpg", 
-						"sexo": "V" 
-					},
-					{ 
-						"nome": "Salvador Garriga Polledo", 
-						"foto": "PP22_garriga_polledo.jpg", 
-						"sexo": "V" 
-					},
-					{ 
-						"nome": "Gabino Puche Rodríguez-Acosta", 
-						"foto": "PP23_puche_rodriguezacosta.jpg", 
-						"sexo": "V" 
-					},
-					{ 
-						"nome": "María Luisa Peón Pérez", 
-						"foto": "PP24_peon_perez.jpg", 
-						"sexo": "M" 
-					}
-				]
-			},
-			{ 
-				"partido": "LPD", 
-				"candidatos": [ 
-					{ 
-						"nome": "Josu Juaristi Abaunz", 
-						"foto": "BILDU1_josu_juaristi.png", 
-						"sexo": "V" 
-					}
-				]		
-			},
-			{ 
-				"partido": "CS", 
-				"candidatos": [ 
-					{ 
-						"nome": "Javier Nart Peñalver", 
-						"foto": "C1_javier_nart.png", 
-						"sexo": "V" 
-					},
-					{ 
-						"nome": "Juan Carlos Girauta Vidal", 
-						"foto": "C2_juan_girauta.png", 
-						"sexo": "V" 
-					}
-				]		
-			},
-			{ 
-				"partido": "CEU", 
-				"candidatos": [ 
-					{ 
-						"nome": "Ramón Tremosa i Balcells", 
-						"foto": "CPE1_ramon_tremosa.png", 
-						"sexo": "V" 
-					},
-					{ 
-						"nome": "Izaskun Bilbao Barandica", 
-						"foto": "CPE2_izaskun_bilbao.png", 
-						"sexo": "M" 
-					},
-					{ 
-						"nome": "Francesc de Paula Gambús i Millet", 
-						"foto": "CPE3_francesc_gambus.png", 
-						"sexo": "V" 
-					}
-				]		
-			},
-			{ 
-				"partido": "EPDD", 
-				"candidatos": [ 
-					{ 
-						"nome": "Josep María Terricabras i Nogueras", 
-						"foto": "ERC1_josep_terricabras.png", 
-						"sexo": "V" 
-					},
-					{ 
-						"nome": "Ernest Maragall i Mira", 
-						"foto": "ERC2_ernest_maragall.png", 
-						"sexo": "V" 
-					},
-					{ 
-						"nome": "Jordi Solé i Ferrando", 
-						"foto": "ERC3_jordi_sole.png", 
-						"sexo": "V" 
-					}
-				
-				]		
-			},
-			{ 
 				"partido": "IU-IP", 
 				"candidatos": [ 
 					{ 
@@ -416,17 +350,6 @@ require(['../../static/js/config'], function () {
 				]		
 			},
 			{ 
-				"partido": "PE", 
-				"candidatos": [ 
-					{ 
-						"nome": "Jordi Sebastià Talavera", 
-						"foto": "PRIMAVERA1_jordi_sebastia.png", 
-						"sexo": "V" 
-					}
-					
-				]		
-			},
-			{ 
 				"partido": "UPyD", 
 				"candidatos": [ 
 					{ 
@@ -461,7 +384,84 @@ require(['../../static/js/config'], function () {
 					}
 				]		
 			},
-				{ 
+			{ 
+				"partido": "CEU", 
+				"candidatos": [ 
+					{ 
+						"nome": "Ramón Tremosa i Balcells", 
+						"foto": "CPE1_ramon_tremosa.png", 
+						"sexo": "V" 
+					},
+					{ 
+						"nome": "Izaskun Bilbao Barandica", 
+						"foto": "CPE2_izaskun_bilbao.png", 
+						"sexo": "M" 
+					},
+					{ 
+						"nome": "Francesc de Paula Gambús i Millet", 
+						"foto": "CPE3_francesc_gambus.png", 
+						"sexo": "V" 
+					}
+				]		
+			},
+			{ 
+				"partido": "EPDD", 
+				"candidatos": [ 
+					{ 
+						"nome": "Josep María Terricabras i Nogueras", 
+						"foto": "ERC1_josep_terricabras.png", 
+						"sexo": "V" 
+					},
+					{ 
+						"nome": "Ernest Maragall i Mira", 
+						"foto": "ERC2_ernest_maragall.png", 
+						"sexo": "V" 
+					},
+					{ 
+						"nome": "Jordi Solé i Ferrando", 
+						"foto": "ERC3_jordi_sole.png", 
+						"sexo": "V" 
+					}
+				
+				]		
+			},
+			{ 
+				"partido": "CS", 
+				"candidatos": [ 
+					{ 
+						"nome": "Javier Nart Peñalver", 
+						"foto": "C1_javier_nart.png", 
+						"sexo": "V" 
+					},
+					{ 
+						"nome": "Juan Carlos Girauta Vidal", 
+						"foto": "C2_juan_girauta.png", 
+						"sexo": "V" 
+					}
+				]		
+			},
+			{ 
+				"partido": "PE", 
+				"candidatos": [ 
+					{ 
+						"nome": "Jordi Sebastià Talavera", 
+						"foto": "PRIMAVERA1_jordi_sebastia.png", 
+						"sexo": "V" 
+					}
+					
+				]		
+			},
+			{ 
+				"partido": "LPD", 
+				"candidatos": [ 
+					{ 
+						"nome": "Josu Juaristi Abaunz", 
+						"foto": "BILDU1_josu_juaristi.png", 
+						"sexo": "V" 
+					}
+				]		
+			},
+			{ 
 				"partido": "VOX", 
 				"candidatos": [ 
 					{ 
@@ -500,11 +500,11 @@ require(['../../static/js/config'], function () {
 		$('#lista-escanos').html(text);
 
 		$('#filtro button').on('click', function () {
-			var $span = $('#lista-escanos').find('span').css('visibility', 'visible');
+			var $span = $('#lista-escanos').find('span').css('opacity', '1');
 			var filter = $(this).data('filter');
 
 			if (filter) {
-				$span.not(filter).css('visibility', 'hidden');
+				$span.not(filter).css('opacity', '0.1');
 			}
 		});
 
