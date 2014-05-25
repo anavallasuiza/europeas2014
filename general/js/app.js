@@ -1,3 +1,7 @@
+function formatPercent(percent) {
+	return Math.floor(parseFloat(percent) * 100) / 100;
+};
+
 require(['../../static/js/config'], function () {
 
 	require([
@@ -6,6 +10,7 @@ require(['../../static/js/config'], function () {
 	'helpers',
 	'selector'
 	], function(d3, $, helpers, selector) {
+
 		var currentData;
 
 		var titulo = d3.select('#titulo');
@@ -50,7 +55,7 @@ require(['../../static/js/config'], function () {
 
 			pieLabel.attr("dy", "-0.5em")
 				.attr("text-anchor", "middle")
-				.text(data.escrutado_porcentaje + '% escrutado');
+				.text(formatPercent(data.escrutado_porcentaje) + '% escrutado');
 
 			arcs = arc_grp.selectAll("path")
 				.data(pie(data.grupos));
@@ -82,7 +87,7 @@ require(['../../static/js/config'], function () {
 					return d.data.nombre.length > 6 ? '' : d.data.nombre;
 				})
 				.style("fill-opacity", function (d) {
-					return d.data.porcentaje > 5 ? 1 : 0;
+					return formatPercent(d.data.porcentaje) > 5 ? 1 : 0;
 				});
 		};
 
@@ -117,7 +122,7 @@ require(['../../static/js/config'], function () {
 				.append('strong')
 				.attr('class', 'percent datos')
 				.text(function(d) {
-					return d.porcentaje + '%';
+					return formatPercent(d.porcentaje) + '%';
 				});
 
 			total_partido
@@ -141,7 +146,7 @@ require(['../../static/js/config'], function () {
 					}
 				titulo.text(data.data.nombre);
 				votaron.text('Votantes: ' + data.data.censo);
-				novotaron.text('Abstención: ' + data.data.abstencion_numero + ' (' + data.data.abstencion_porcentaje+ '%)');
+				novotaron.text('Abstención: ' + data.data.abstencion_numero + ' (' + formatPercent(data.data.abstencion_porcentaje) + '%)');
 
 				currentData = data.data;
 				buildGraph();
