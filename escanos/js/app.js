@@ -1,9 +1,10 @@
 require(['../../static/js/config'], function () {
 
 	require([
-	'jquery'
+	'jquery',
+	'modal'
 
-	], function($) {
+	], function($, modal) {
 		var escanos = {
 			"PP": 16,
 			"PSOE": 14,
@@ -514,7 +515,12 @@ require(['../../static/js/config'], function () {
 			if (partido) {
 				var persoa = partido.persoas[$this.data('per')];
 
-				
+				var texto = '<div class="persoa">';
+				texto += '<img width="150" height="150" src="/escanos/fotos_candidatos/'+ persoa.foto +'">';
+					texto += '<h3>' + persoa.nome + '</h3>';
+					texto += '<p>' + partido.partido + '</p>';
+				texto += '</div>';
+				modal.abrirHtml(texto);
 			}
 
 		});

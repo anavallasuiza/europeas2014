@@ -7,6 +7,7 @@ require.config({
 		'sifter': '../libs/sifter/sifter',
 		'microplugin': '../libs/microplugin/src/microplugin',
 		'qtip': '../libs/qtip2/jquery.qtip.min',
+		'magnific-popup': '../libs/magnific-popup/dist/jquery.magnific-popup.min',
 		'helpers': 'common'
 	}
 });
