@@ -4,14 +4,11 @@ require(['../../static/js/config'], function () {
 	'd3',
 	'helpers'
 	], function(d3, helpers) {
-		var total_votantes, g;
+		var currentData, total_votantes, g;
 
 		var width = 450, 
 			height = 150, 
 			radius = height;
-
-		var color = d3.scale.ordinal()
-			.range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
 
 		var degree = Math.PI/180;
 
@@ -39,7 +36,7 @@ require(['../../static/js/config'], function () {
 
 			g.attr("d", arc)
 				.each(function(d) { this._current = d; })
-				.style("fill", function(d) { return color(d.data.partido); });
+				.style("fill", function(d) { return helpers.logos[d.data.partido.toLowerCase()].color; });
 
 			g.style('opacity', 0)
 				.transition()
@@ -79,7 +76,7 @@ require(['../../static/js/config'], function () {
 				.append('span')
 				.attr('class', 'color')
 				.style('background', function (d) {
-					return helpers.logos[d.partido.toLowerCase()].color
+					return helpers.logos[d.partido.toLowerCase()].color;
 				});
 
 			total_partido
@@ -100,29 +97,17 @@ require(['../../static/js/config'], function () {
 		};
 
 
-		function arcTween(a) {
-			var i = d3.interpolate(this._current, a);
-			this._current = i(0);
-			return function(t) {
-				return arc(i(t));
-			};
-		}
+		var updateData = function() {
+			generateTotalTable(currentData);
 
-		var sel = d3.select('#totales')
-			.selectAll('button');
+			g.data(pie(currentData.datos));
 
-		sel.on('click', change);
-
-		var change = function() {
-			console.log(this);
-			var file = '/general/data/' + this.value;
-			d3.json(file, function(data) {
-				total_votantes = data.votantes - data.abstencion;
-
-				generateTotalTable(data);
-
-				g.data(pie(data.datos));
-				g.transition().duration(750).attrTween("d", arcTween);
+			g.transition().duration(750).attrTween("d", function (a) {
+				var i = d3.interpolate(this._current, a);
+				this._current = i(0);
+				return function(t) {
+					return arc(i(t));
+				};
 			});
 		};
 
@@ -132,6 +117,18 @@ require(['../../static/js/config'], function () {
 
 			generateTotalTable(data);
 			generateTotalGraph(data);
+		});
+
+		var sel = d3.select('#totales')
+			.selectAll('button');
+
+		sel.on('click', function() {
+			var file = '/general/data/' + this.value;
+
+			d3.json(file, function(data) {
+				currentData = data;
+				updateData();
+			});
 		});
 	});
 });
