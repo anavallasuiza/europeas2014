@@ -267,17 +267,12 @@
 		"candidatos": [ 
 			{ 
 				"nome": "Javier Nart Peñalver", 
-				"foto": "C1JavierNart.png", 
+				"foto": "C1_javier_nart.png", 
 				"sexo": "V" 
 			}
 			{ 
 				"nome": "Juan Carlos Girauta Vidal", 
 				"foto": "C2_juan_girauta.png", 
-				"sexo": "V" 
-			}
-			{ 
-				"nome": "Javier Nart Peñalver", 
-				"foto": "C1JavierNart.png", 
 				"sexo": "V" 
 			}
 		]		
