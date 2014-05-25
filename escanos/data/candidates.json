@@ -1,3 +1,67 @@
 [
-	{ partido: "Partido de ejemplo", candidatos: [ { nome: "Candidato 1", foto: "...", sexo: "V" } ] }
+	{ 
+		"partido": "PSOE", 
+		"candidatos": [ 
+			{ 
+				"nome": "Elena Valenciano", 
+				"foto": "PSOE1_valenciano_martinez.jpg", 
+				"sexo": "M" 
+			},
+			{ 
+				"nome": "Ramón Jauregui Atondo", 
+				"foto": "PSOE2_jauregui_atondo.jpg", 
+				"sexo": "V" 
+			}
+			{ 
+				"nome": "Soledad Cabezón Ruiz", 
+				"foto": "PSOE3_cabezon_ruiz.jpg", 
+				"sexo": "M" 
+			}
+			{ 
+				"nome": "Fernando López Aguilar", 
+				"foto": "PSOE4_lopez_aguilar.jpg", 
+				"sexo": "V" 
+			}
+			{ 
+				"nome": "Iratxe García Pérez", 
+				"foto": "PSOE5_garcia_perez.jpg", 
+				"sexo": "M" 
+			}
+			{ 
+				"nome": "Javier López Fernández", 
+				"foto": "PSOE6_lopez_fernandez.jpg", 
+				"sexo": "V" 
+			}
+			{ 
+				"nome": "Inmaculada Rodríguez-Piñeiro Fernández", 
+				"foto": "PSOE7_rodriguezpineiro_fernandez.jpg", 
+				"sexo": "M" 
+			}
+			{ 
+				"nome": "Enrique Guerrero Salom", 
+				"foto": "PSOE8_guerrero_salom.jpg", 
+				"sexo": "V" 
+			}
+			{ 
+				"nome": "Eider Gardiazábal Rubial", 
+				"foto": "PSOE9_gardiazabal_rubial.jpg", 
+				"sexo": "M" 
+			}
+			{ 
+				"nome": "José Blanco López", 
+				"foto": "PSOE10_blanco_lopez.jpg", 
+				"sexo": "V" 
+			}
+			{ 
+				"nome": "Clara Aguilera García", 
+				"foto": "PSOE11_aguilera_garcia.jpg", 
+				"sexo": "M" 
+			}
+			{ 
+				"nome": "Sergio Gutiérrez Prieto", 
+				"foto": "PSOE_.jpg", 
+				"sexo": "M" 
+			}
+		] 
+	}
 ]
