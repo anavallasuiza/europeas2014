@@ -8,8 +8,14 @@
 
 	<style type="text/css">
 		.label {
-			font-size: .8em;
+			font-size: .6em;
 			fill: #fff;
+		}
+		.widget {
+			height: 530px;
+		}
+		.widget figure {
+			margin-top: 80px;
 		}
 		.widget > nav .selectize-control {
 			display: inline-block;
@@ -22,10 +28,11 @@
 	<article class="widget ly-wrapper">
 		<header>
 			<h1>Resultados generales</h1>
+			<a class="actualizacion" id="actualizado" href="#"></a>
 		</header>
 
 		<nav>
-			<button class="button button-principal">España</button>
+			<button id="select-total" class="button button-principal">España</button>
 			<select id="select-comunidades" placeholder="Selecciona una comunidad"></select>
 			<select id="select-provincias" placeholder="Selecciona una provincia"></select>
 			<select id="select-municipios" placeholder="Selecciona un municipio"></select>
@@ -48,9 +55,9 @@
 				<div id="total-viz"></div>
 
 				<figcaption>
-					<div class="widget-opcions">
-						<label><input id="abstencion" type="checkbox"> Visualizar Abstención</label>
-					</div>
+					<!--<div class="widget-opcions">-->
+						<!--<label><input id="abstencion" type="checkbox"> Visualizar Abstención</label>-->
+					<!--</div>-->
 
 					<ul id="totales" class="button-escoller widget-opcions">
 						<li><button class="button button-activo">2014</button></li>
