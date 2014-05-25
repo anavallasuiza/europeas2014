@@ -210,15 +210,20 @@ define([], function() {
 				nombre: "CILUS",
 				color: "#CCCC99"
 			},
-			"00": {
+			"-1": {
 				codigo: "00",
 				nombre: "Blanco",
 				color: "#CCCCCC",
 			},
-			"-00": {
+			"-2": {
 				codigo: "00",
 				nombre: "Nulos",
-				color: "#CCCCCC"
+				color: "#BBBBBB"
+			},
+			"-3": {
+				codigo: "00",
+				nombre: "Otros",
+				color: "#AAAAAA"
 			}
 		}
 	};
