@@ -201,7 +201,7 @@ Class Csv2Json
         });
 
         $others = array_slice($groups, 11);
-        //$groups = array_slice($groups, 0, 11);
+        $groups = array_slice($groups, 0, 11);
 
         array_walk($others, function (&$value) {
             $value['votos'] = round($value['votos'] / 10);
@@ -222,7 +222,7 @@ Class Csv2Json
 //            'porcentaje' => $this->int($row[16], 100),
             'diputados' => 0
         ];
-/*
+
         $groups[] = [
             'id' => '-3',
             'nombre' => 'Otros',
@@ -231,7 +231,7 @@ Class Csv2Json
             'diputados' => array_sum(array_column($others, 'diputados')),
             'otros' => $others
         ];
-*/
+
         $max = array_sum(array_column($groups, 'votos'));
 
         array_walk($groups, function (&$value) use ($max) {
