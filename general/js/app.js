@@ -133,12 +133,12 @@ require(['../../static/js/config'], function () {
 			generateTotalGraph(currentData);
 		};
 
-
 		var initGraph = function(dataFile, callback) {
 			var file = '/json/' + dataFile;
+			console.log(file);
 			d3.json(file, function(error, data) {
 				if(error) {
-					location.reload();
+					//location.reload();
 					}
 				titulo.text(data.data.nombre);
 				votaron.text('Votantes: ' + data.data.censo);
@@ -152,13 +152,6 @@ require(['../../static/js/config'], function () {
 				}
 			});
 		};
-
-		var sel = d3.select('#totales')
-			.selectAll('button');
-
-		sel.on('click', function() {
-			initGraph(this.value);
-		});
 
 		//Cousas do select
 		var $selectComunidades = $('#select-comunidades');
@@ -183,6 +176,14 @@ require(['../../static/js/config'], function () {
 
 		selector.ocultar($selectProvincias);
 		selector.ocultar($selectMunicipios);
+
+		$('#b2009').on('click', function() {
+			initGraph('2009.json');
+		});
+
+		$('#b2014').on('click', function() {
+			initGraph('2014.json');
+		});
 
 		$('#select-total').on('click', function() {
 			initGraph('TO-00.json', function (datos) {
