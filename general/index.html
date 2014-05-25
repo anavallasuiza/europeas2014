@@ -7,6 +7,10 @@
 	<link rel="stylesheet" href="/static/css/common.min.css" type="text/css" media="all" />
 
 	<style type="text/css">
+		.label {
+			font-size: .8em;
+			fill: #fff;
+		}
 		.widget > nav .selectize-control {
 			display: inline-block;
 			max-width: 30%;
@@ -37,10 +41,6 @@
 
 				<div class="widget-lenda">
 					<ul id="total-table"></ul>
-
-					<div class="widget-lenda-opcions">
-						<label><input id="abstencion" type="checkbox"> Visualizar Abstención</label>
-					</div>
 				</div>
 			</div>
 
@@ -48,7 +48,11 @@
 				<div id="total-viz"></div>
 
 				<figcaption>
-					<ul id="totales" class="button-escoller">
+					<div class="widget-opcions">
+						<label><input id="abstencion" type="checkbox"> Visualizar Abstención</label>
+					</div>
+
+					<ul id="totales" class="button-escoller widget-opcions">
 						<li><button class="button button-activo" value="totales2.json">2009</button></li>
 						<li><button class="button" value="totales.json">2014</button></li>
 					</ul>

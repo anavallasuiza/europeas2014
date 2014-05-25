@@ -21,14 +21,13 @@ require(['../../static/js/config'], function () {
 		var degree = Math.PI/180;
 
 		var pie = d3.layout.pie()
-					.value(function(d) { return d.votos; })
-					.sort(d3.ascending)
-					.startAngle(-90 * degree)
-					.endAngle(90 * degree);
+			.value(function(d) { return d.votos; })
+			.startAngle(-90 * degree)
+			.endAngle(90 * degree);
 
 		var arc = d3.svg.arc()
-					.innerRadius(radius- 70)
-					.outerRadius(radius - 20);
+			.innerRadius(radius- 70)
+			.outerRadius(radius - 20);
 
 		var svg = d3.select("#total-viz").append("svg:svg")
 			.attr("width", width).attr("height", height);
@@ -58,8 +57,7 @@ require(['../../static/js/config'], function () {
 				.attr("stroke", "white")
 				.attr("stroke-width", 0.5)
 				.style("fill", function(d) { 
-					return '#ff9900'; 
-					//return helpers.logos[d.id].color || '#ff9900'; 
+					return helpers.info[d.data.id].color || '#CCCCCC'; 
 				})
 				.attr("d", arc)
 				.each(function (d) {
@@ -95,17 +93,9 @@ require(['../../static/js/config'], function () {
 
 			total_partido
 				.append('span')
-				.attr('class', 'logo')
-				.text(function(d) {
-					return helpers.logos[d.id.logo] || 'placeholder.png';
-				});
-
-			total_partido
-				.append('span')
 				.attr('class', 'color')
 				.style('background', function (d) {
-					return '#ccc';
-					//return helpers.logos[d.id].color;
+					return helpers.info[d.id].color || '#CCCCCC';
 				});
 
 			total_partido
@@ -134,13 +124,21 @@ require(['../../static/js/config'], function () {
 			pieLabel.text(currentData.escrutado_porcentaje + '% escrutado');
 
 			if(abstencion.property('checked')) {
-				var newData = currentData.grupos.concat([{'partido': 'Abstencion', 'votos': +currentData.abstencion_numero}]);
+				var abstencion_template = {
+					'nombre': 'Abstencion',
+					'id': '00',
+					'votos': currentData.abstencion_numero
+				};
+
+				var newData = currentData.grupos.concat([abstencion_template]);
+
 				arcs.data(pie(newData));
 				sliceLabel.data(pie(newData));
 			} else {
 				arcs.data(pie(currentData.grupos));
 				sliceLabel.data(pie(currentData.grupos));
 			}
+
 			arcs.transition().duration(500).attrTween("d", function (a) {
 				var i = d3.interpolate(this._current, a);
 				this._current = i(0);
@@ -183,28 +181,12 @@ require(['../../static/js/config'], function () {
 			initGraph(this.value);
 		});
 
-
 		abstencion.on('change', function() {
 			updateGraph();
 		});
 
 		initGraph('TO-00.json');
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		//Selects
 		var $selectComunidades = $('#select-comunidades');
 		var $selectProvincias = $('#select-provincias');
 		var $selectMunicipios = $('#select-municipios');

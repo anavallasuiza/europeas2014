@@ -10,3 +10,13 @@ require.config({
 		'helpers': 'common'
 	}
 });
+
+require(['jquery'], function ($) {
+
+	$('.button-escoller .button').on('click', function () {
+		var $this = $(this);
+
+		$this.parents('.button-escoller').find('.button-activo').removeClass('button-activo');
+		$this.addClass('button-activo');
+	});
+});
