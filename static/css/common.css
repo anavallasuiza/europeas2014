@@ -1,4 +1,15 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
+@font-face {
+  font-family: 'Fira Sans';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Fira Sans'), local('OpenSans'), url('../fonts/Fira Sans WOFF/FiraSans-Regular.woff') format('woff');
+}
+@font-face {
+  font-family: 'Fira Sans';
+  font-style: normal;
+  font-weight: bold;
+  src: local('Fira Sans'), local('OpenSans'), url('../fonts/Fira Sans WOFF/FiraSans-Medium.woff') format('woff');
+}
 
 /* bibliotecas */
 @import url('../libs/csans/csans.css');
@@ -7,13 +18,22 @@
 
 /* Variables */
 :root {
-	--gris: #E3E3E3;
-	--gris-escuro: color(var(--gris), light:30);
+	--negro: #36393E;
+	--gris-escuro: color(var(--negro), 66);
+	--gris: #F0F1F3;
+	--color-principal: #CAC115;
 }
+
+/* Xenérico */
 body {
 	padding: 20px;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Fira Sans', sans-serif;
+	color: var(--negro);
 }
+label {
+	cursor: pointer;
+}
+
 
 /* Layouts */
 .ly-wrapper {
@@ -40,28 +60,101 @@ body {
 }
 
 
+/* Botóns */
+.button-escoller {
+	list-style: none;
+	margin: 0;
+	white-space: nowrap;
+	text-align: center;
+
+	> li {
+		display: inline;
+	}
+
+	.button {
+		border-radius: 3px;
+		background: var(--gris);
+		transition: background 0.5s;
+
+		&:hover {
+			background: color(var(--gris), light:-10);
+		}
+
+		&.button-activo {
+			background: var(--negro);
+			color: white;
+		}
+	}
+}
+
+.button-principal {
+	background: var(--color-principal);
+	color: white;
+	border-radius: 3px;
+	transition: background 0.5s;
+	padding-top: 0.4em;
+	padding-bottom: 0.4em;
+
+	&:hover {
+		background: var(--negro);
+	}
+}
+
+/* Correccións selectize */
+.selectize-input {
+	display: block;
+	padding-right: 24px !important;
+
+	&.input-active {
+		display: block !important;
+	}
+}
+
+
 /* Widget básico */
 .widget {
-	background: var(--gris);
+	background: white;
+	border: solid 5px var(--gris);
 
 	> header {
-		padding: 20px;
+		padding: 10px 20px;
+		background: var(--gris);
 
 		h1 {
 			font-weight: normal;
+			font-size: 1.6rem;
 			letter-spacing: -0.015em;
+			color: var(--gris-escuro);
+		}
+	}
+	> nav {
+		padding: 20px;
+		border-bottom: dotted 5px var(--gris);
+	}
+	figure {
+		figcaption {
+			margin-top: 20px;
 		}
 	}
 	.widget-contido {
+		padding-top: 20px;
+		padding-bottom: 20px;
+
 		h2 {
-			font-weight: normal;
+			font-weight: bold;
 			letter-spacing: -0.015em;
-			color: var(--gris-escuro);
+			color: var(--negro);
 			font-size: 3rem;
-			margin: 0 0 20px 0;
+			margin: 0;
 		}
 	}
+	.widget-detalles {
+		color: var(--gris-escuro);
+		font-size: 0.8em;
+		margin-top: 1em;
+	}
 	.widget-lenda {
+		margin-top: 1em;
 		background: white;
 		border: solid 1px color(var(--gris), light:-5);
 		padding: 10px;
@@ -90,6 +183,12 @@ body {
 			color: var(--gris-escuro);
 			display: inline-block;
 			font-size: 0.8em;
+		}
+
+		.widget-lenda-opcions {
+			border-top: solid 1px color(var(--gris), light:-5);
+			margin-top: 10px;
+			padding-top: 10px;
 		}
 	}
 }
