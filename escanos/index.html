@@ -1,28 +1,148 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Elecciones Europeas 2014 - Resultados</title>
+	<title>Elecciones Europeas 2014 - Reparto de escaños</title>
 	<meta charset="utf-8" />
 
 	<link rel="stylesheet" href="/static/css/common.min.css" type="text/css" media="all" />
 
 	<style type="text/css">
-		.label {
-			font-size: .8em;
-			fill: #fff;
+		.escanos {
+			width: 100%;
+			table-layout: fixed;
 		}
-		.widget > nav .selectize-control {
+		.escanos li > span {
 			display: inline-block;
-			max-width: 30%;
-			vertical-align: middle;
+			width: 50px;
+			height: 50px;
+			background: blue;
+			margin: 2px auto;
 		}
 	</style>
 </head>
 <body>
 	<article class="widget ly-wrapper">
 		<header>
-			<h1>Escanos</h1>
+			<h1>Reparto de escaños</h1>
 		</header>
+
+		<nav>
+			<ul class="button-escoller">
+				<li><button class="button button-activo">Mostrar todos</button></li>
+				<li><button class="button">Mujeres</button></li>
+				<li><button class="button">Hombres</button></li>
+			</ul>
+		</nav>
+
+		<div class="widget-contido">
+			<ul class="escanos">
+				<li>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+				</li>
+				<li>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+				</li>
+				<li>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+				</li>
+				<li>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+				</li>
+				<li>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+				</li>
+				<li>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+				</li>
+				<li>
+					<span></span>
+					<span></span>
+					<span></span>
+				</li>
+				<li>
+					<span></span>
+					<span></span>
+				</li>
+				<li>
+					<span></span>
+				</li>
+			</table>
+		</div>
+	</article>
 
 	<script data-main="/general/js/app" src="../static/libs/requirejs/require.js" type="text/javascript" charset="utf-8"></script>
 </body>
