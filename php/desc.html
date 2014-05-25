@@ -1,0 +1,327 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
+<!-- Mirrored from 10.1.0.178/jccm/repositorio/descargas/auto07/DESCRI07.htm by HTTrack Website Copier/3.x [XR&CO'2007], Mon, 18 Jun 2007 10:04:53 GMT -->
+<head>
+    <title>Elecciones 2007 - Descripción de ficheros</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link rel="stylesheet" media="all" href="http://pagina.jccm.es/aapp/PortalElecciones07/jccm/repositorio/descargas/auto07/../../estilos/auto07.css" type="text/css" />
+</head>
+<body onload="javascript:this.focus();window.status='';">
+<!--LINKS-->
+<div class="menulinks" id="opciones">
+    <script type="text/javascript">
+        document.getElementById("opciones").style.visibility = "visible"
+    </script>
+    <ul>
+        <a href="javascript:window.print();" accesskey="m">I<span class="u">m</span>primir</a></li>
+    </ul>
+</div><!--FIN LINKS-->
+<br />
+<!--TITULOS-->
+<div class="cajatitulo">
+    <div class="titulo"><span class="tit1">Descripciones de ficheros</span></div>
+</div><!--FIN TITULOS-->
+<div class="cajadatosdos">
+        <p>Todos los ficheros descargables desde estas páginas tienen las características siguientes:<p>
+        <ul>
+            <li> Registros de longitud fija con final de registro tipo DOS (<b>CR LF</b>).</li>
+            <li> Campos delimitados por separadores "<b>;</b>"(punto y coma).</li>
+        </ul>
+        En los campos de tipo "porcentaje", las dos últimas posiciones por la derecha se consideran decimales.
+        <p>
+    Las longitudes que se detallan a continuación en los diseños de los ficheros <b>NO</b> incluyen el separador de campos.
+        </p>
+</div>
+<div class="cjfich">
+        <table class="tabdescri" border="0" cellpadding="0" cellspacing="0" width="100%">
+            <caption><span class="titufich"><u>Ficheros de totales del recuento provisional</u></span>Contienen la información del recuento provisional totalizada por por comunidad y circunscripciones.<br /></caption>
+        <thead>
+                <tr>
+                        <th class="centrado">Descripción</th>
+                        <th>Longitud</th>
+                        <th>Posicion</th>
+                </tr>
+        </thead>
+        <tbody>
+              <tr>
+                    <th>Identificador del registro:<ul class="identreg" >
+                           <li>Comunidad<b>= "CM"</b></li>
+                           <li>Circunscripción<b>= "CI"</b></li>
+                    </ul></th>
+                    <td>2</td>
+                    <td>0</td>
+          </tr>
+              <tr>
+                        <th>Código de comunidad</th>
+                        <td>2</td>
+                        <td>1</td>
+                </tr>
+                <tr>
+                        <th>Código de provincia</th>
+                        <td>2</td>
+                        <td>2</td>
+                </tr>
+                <tr>
+                        <th>Relleno="9"</th>
+                        <td>1</td>
+                        <td>3</td>
+                </tr>
+                <tr>
+                        <th>Nombre comunidad, circunscripción</th>
+                        <td>25</td>
+                        <td>4</td>
+                </tr>
+                <tr>
+                        <th>Número de mesas totales</th>
+                        <td>5</td>
+                        <td>5</td>
+                </tr>
+                <tr>
+                        <th>Censo</th>
+                        <td>8</td>
+                        <td>6</td>
+                </tr>
+                <tr>
+                        <th>Censo escrutado</th>
+                        <td>8</td>
+                        <td>7</td>
+                </tr>
+                <tr>
+                        <th>Porcentaje del censo escrutado</th>
+                        <td>5</td>
+                        <td>8</td>
+                </tr>
+                <tr>
+                        <th>Total votantes</v>
+                        <td>8</td>
+                        <td>9</td>
+                </tr>
+                <tr>
+                        <th>Porcentaje del total de votantes</th>
+                        <td>5</td>
+                        <td>10</td>
+                </tr>
+                <tr>
+                        <th>Abstención</th>
+                        <td>8</td>
+                        <td>11</td>
+                </tr>
+                <tr>
+                        <th>Porcentaje de abstención</th>
+                        <td>5</td>
+                        <td>12</td>
+                </tr>
+                <tr>
+                        <th>Votos en blanco</th>
+                        <td>8</td>
+                        <td>13</td>
+                </tr>
+                <tr>
+                        <th>Porcentaje de votos en blanco</th>
+                        <td>5</td>
+                        <td>14</td>
+                </tr>
+                <tr>
+                        <th>Votos nulos</th>
+                        <td>8</td>
+                        <td>15</td>
+                </tr>
+                <tr>
+                        <th>Porcentaje de votos nulos</th>
+                        <td>5</td>
+                        <td>16</td>
+                </tr>
+                <tr>
+                        <th>Diputados a elegir</th>
+                        <td>3</td>
+                        <td>17</td>
+                </tr>
+                <tr>
+                        <td>Tabla de <b>30</b> elementos. Cada elemento : </td>
+                        <td>&nbsp;</td>
+                </tr>
+                <tr>
+                        <th class="lpad">Código del partido</th>
+                        <td>4</td>
+                </tr>
+                <tr>
+                        <th class="lpad">Siglas del partido</th>
+                        <td>20</td>
+                </tr>
+                <tr>
+                        <th class="lpad">Votos del partido</th>
+                        <td>8</td>
+                </tr>
+                <tr>
+                        <th class="lpad">Porcentaje de votos del partido</th>
+                        <td>5</td>
+                </tr>
+                <tr>
+                        <th class="lpad">Diputados electos del partido</th>
+                        <td>3</td>
+                </tr>
+                </table>
+        </tbody>
+        </table>
+</div>
+<br>
+<div class="cjfich">
+        <table class="tabdescri" border="0" cellpadding="0" cellspacing="0" width="100%">
+              <caption ><span class="titufich"><u>Fichero de municipios de recuento provisional</u></span>
+              Contiene la información del recuento provisional totalizada por municipios.
+              </caption>
+            <thead>
+               <tr>
+                            <th class="centrado">Descripción</th>
+                            <th>Longitud</th>
+                   </tr>
+            </thead>
+            <tbody>
+            <tr>
+                        <th>Código de comunidad</th>
+                        <td >2</td>
+                        <td>0</td>
+                </tr>
+                </tr>
+                <tr>
+                        <th>Código de provincia</th>
+                        <td>2</td>
+                        <td>1</td>
+                </tr>
+                <tr>
+                        <th>Relleno="9"</th>
+                        <td>1</td>
+                        <td>2</td>
+                </tr>
+                <tr>
+                        <th>Código de municipio</th>
+                        <td>3</td>
+                        <td>3</td>
+                </tr>
+                <tr>
+                        <th>Relleno="99"</th>
+                        <td>2</td>
+                        <td>4</td>
+                </tr>
+                <tr>
+                        <th>Nombre del municipio</th>
+                        <td>40</td>
+                        <td>5</td>
+                </tr>
+                <tr>
+                        <th>Número de mesas totales</th>
+                        <td>5</td>
+                        <td>6</td>
+                </tr>
+                <tr>
+                        <th>Censo</th>
+                        <td>8</td>
+                        <td>7</td>
+                </tr>
+                <tr>
+                        <th>Censo escrutado</th>
+                        <td>8</td>
+                        <td>8</td>
+                </tr>
+                <tr>
+                        <th>Porcentaje del censo escrutado</th>
+                        <td>5</td>
+                        <td>9</td>
+                </tr>
+                <tr>
+                        <th>Total votantes</th>
+                        <td>8</td>
+                        <td>10</td>
+                </tr>
+                <tr>
+                        <th>Porcentaje del total de votantes</th>
+                        <td>5</td>
+                        <td>11</td>
+                </tr>
+                <tr>
+                        <th>Abstención</th>
+                        <td>8</td>
+                        <td>12</td>
+                </tr>
+                <tr>
+                        <th>Porcentaje de abstención</th>
+                        <td>5</td>
+                        <td>13</td>
+                </tr>
+                <tr>
+                        <th>Votos en blanco</th>
+                        <td>8</td>
+                        <td>14</td>
+                </tr>
+                <tr>
+                        <th>Porcentaje de votos en blanco</th>
+                        <td>5</td>
+                        <td>15</td>
+                </tr>
+                <tr>
+                        <th>Votos nulos</th>
+                        <td>8</td>
+                        <td>16</td>
+                </tr>
+                <tr>
+                        <th>Porcentaje de votos nulos</th>
+                        <td>5</td>
+                        <td>17</td>
+                </tr>
+                <tr>
+                        <td>Tabla de <b>30</b> elementos. Cada elemento :</td>
+                        <td>&nbsp;</td>
+                </tr>
+               <tr>
+                        <th  class="lpad">Código del partido</th>
+                        <td>4</td>
+                </tr>
+                <tr>
+                        <th class="lpad">Siglas del partido</th>
+                        <td>20</td>
+                </tr>
+                <tr>
+                        <th class="lpad">Votos del partido</th>
+                        <td>8</td>
+                </tr>
+                <tr>
+                        <th class="lpad">Porcentaje de votos del partido</th>
+                        <td>5</td>
+                </tr>
+                 </table>
+                </tbody>
+                </table>
+</div>
+<br />
+<div class="cjfich">
+        <table class="tabdescri" border="0" cellpadding="0" cellspacing="0" width="100%">
+                <caption><span class="titufich"><u>Ficheros de partidos</u></span></caption>
+                <thead>
+                <tr>
+                        <th class="centrado" >Descripción</th>
+                        <th>Longitud</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                        <th>Código del partido</th>
+                        <td>4</td>
+                </tr>
+                <tr>
+                        <th>Siglas del partido</th>
+                        <td>20</td>
+                </tr>
+                <tr>
+                        <th>Denominación del partido</th>
+                        <td>80</td>
+                </tr>
+                </tbody>
+        </table>
+</div>
+ <br>
+<br />
+<br>
+</body>
+<!-- Mirrored from 10.1.0.178/jccm/repositorio/descargas/auto07/DESCRI07.htm by HTTrack Website Copier/3.x [XR&CO'2007], Mon, 18 Jun 2007 10:04:53 GMT -->
+</html>
