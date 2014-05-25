@@ -200,10 +200,11 @@ Class Csv2Json
             return ($a['votos'] > $b['votos']) ? -1 : 1;
         });
 
+        $others = array_slice($groups, 10);
         $groups = array_slice($groups, 0, 10);
 
         $groups[] = [
-            'id' => '00',
+            'id' => '-1',
             'nombre' => 'Blanco',
             'votos' => $this->int($row[13]),
             'porcentaje' => $this->int($row[14], 100),
@@ -211,11 +212,20 @@ Class Csv2Json
         ];
 
         $groups[] = [
-            'id' => '00',
+            'id' => '-2',
             'nombre' => 'Nulos',
             'votos' => $this->int($row[15]),
             'porcentaje' => $this->int($row[16], 100),
             'diputados' => 0
+        ];
+
+        $groups[] = [
+            'id' => '-3',
+            'nombre' => 'Otros',
+            'votos' => array_sum(array_column($others, 'votos')),
+            'porcentaje' => array_sum(array_column($others, 'porcentaje')),
+            'diputados' => array_sum(array_column($others, 'diputados')),
+            'otros' => $otros
         ];
 
         return [
