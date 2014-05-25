@@ -142,8 +142,8 @@ require(['../../static/js/config'], function () {
 			var file = '/json/' + dataFile;
 
 			d3.json(file, function(error, data) {
-				if(error) {
-					console.log(file + ': '+ error);
+				if (error) {
+					return;
 				}
 
 				titulo.text(data.data.nombre);
@@ -217,6 +217,7 @@ require(['../../static/js/config'], function () {
 			//Ao cambiar de comunidade, carga as provincias e borra municipios:
 			$selectComunidades.change(function () {
 				$('#totales').hide();
+
 				initGraph($selectComunidades.val(), function (datos) {
 					selector.mostrar($selectProvincias);
 					selector.replaceOptions($selectProvincias, datos);
