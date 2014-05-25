@@ -252,6 +252,6 @@ Class Csv2Json
 
     public function int ($value, $max = 0)
     {
-        return rand(0, $max ?: 10000);
+        return rand(0, $max ?: 100000);
     }
 }
