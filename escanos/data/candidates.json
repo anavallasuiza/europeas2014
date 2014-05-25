@@ -1,0 +1,3 @@
+[
+	{ partido: "Partido de ejemplo", candidatos: [ { nome: "Candidato 1", foto: "...", sexo: "V" } ] }
+]
