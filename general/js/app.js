@@ -6,56 +6,75 @@ require(['../../static/js/config'], function () {
 	'helpers',
 	'selector'
 	], function(d3, $, helpers, selector) {
-		var currentData, g;
+		var currentData;
 
 		var titulo = d3.select('#titulo');
 		var votaron = d3.select('#votaron');
 		var novotaron = d3.select('#novotaron');
 		var abstencion = d3.select('#abstencion');
 
-		var width = 450, 
-			height = 150, 
-			radius = height;
-
+		var width = 550, 
+			height = 200, 
+			radius = height,
+			arcs, sliceLabel;
+		
 		var degree = Math.PI/180;
 
-		var arc = d3.svg.arc()
-			.outerRadius(radius - 10)
-			.innerRadius(radius - 80);
-		
 		var pie = d3.layout.pie()
-			.sort(null)
-			.value(function(d) { return d.votos; })
-			.startAngle(-90*degree)
-			.endAngle(90*degree);
+					.sort(null)
+					.value(function(d) { return d.votos; })
+					.startAngle(-90 * degree)
+					.endAngle(90 * degree);
 
-		var svg = d3.select("#total-viz").append("svg")
-			.attr("width", width)
-			.attr("height", height)
-			.append("g")
-			.attr("transform", "translate(" + width / 2 + "," + height + ")");
+		var arc = d3.svg.arc()
+					.innerRadius(radius- 70)
+					.outerRadius(radius - 20);
+
+		var svg = d3.select("#total-viz").append("svg:svg")
+			.attr("width", width).attr("height", height);
+
+		var arc_grp = svg.append("svg:g")
+			.attr("transform", "translate(" + (width / 2) + "," + (height) + ")");
+
+		var label_group = svg.append("svg:g")
+			.attr("transform", "translate(" + (width / 2) + "," + (height) + ")");
+
+		var center_group = svg.append("svg:g")
+			.attr("transform", "translate(" + (width / 2) + "," + (height) + ")");
+
+		var pieLabel = center_group.append("svg:text");
+
+		pieLabel.attr("dy", "-0.5em")
+			.attr("text-anchor", "middle");
 
 		var generateTotalGraph = function(data){
 
-			g = svg.selectAll("path")
-				.data(pie(data.datos))
-				.enter().append("path");
+			pieLabel.text(data.escrutado + '% escrutado');
 
-			g.attr("d", arc)
-				.each(function(d) { this._current = d; })
+			arcs = arc_grp.selectAll("path")
+				.data(pie(data.datos));
+
+			arcs.enter().append("svg:path")
+				.attr("stroke", "white")
+				.attr("stroke-width", 0.5)
 				.style("fill", function(d) { return helpers.logos[d.data.partido.toLowerCase()].color; })
-				.append("svg:title")
-				.text(function(d) {
-					return d.data.partido;
+				.attr("d", arc)
+				.each(function (d) {
+					this._current = d;
 				});
 
-			g.style('opacity', 0)
-				.transition()
-				.delay(function(d, i){
-					return i * 20;
+			sliceLabel = label_group.selectAll("text")
+				.data(pie(data.datos));
+
+			sliceLabel.enter().append("svg:text")
+				.attr("class", "label")
+				.attr("transform", function (d) {
+					return "translate(" + arc.centroid(d) + ")";
 				})
-				.duration(500)
-				.style('opacity', 1);
+				.attr("text-anchor", "middle")
+				.text(function (d) {
+					return d.data.partido;
+				});
 		};
 
 		var generateTotalTable = function(data){
@@ -67,14 +86,6 @@ require(['../../static/js/config'], function () {
 				.enter();
 
 			var total_partido = total_table.append('li');
-
-			//total_partido.style('opacity', 0)
-				//.transition()
-				//.delay(function(d, i){
-					//return i * 20;
-				//})
-				//.duration(500)
-				//.style('opacity', 1);
 
 			total_partido
 				.append('span')
@@ -114,20 +125,32 @@ require(['../../static/js/config'], function () {
 
 		var updateGraph = function() {
 			generateTotalTable(currentData);
+			pieLabel.text(currentData.escrutado + '% escrutado');
 
 			if(abstencion.property('checked')) {
-				g.data(pie(currentData.datos.concat([{'partido': 'Abstencion', 'votos': currentData.abstencion}])));
+				var newData = currentData.datos.concat([{'partido': 'Abstencion', 'votos': +currentData.abstencion}]);
+				arcs.data(pie(newData));
+				sliceLabel.data(pie(newData));
 			} else {
-				g.data(pie(currentData.datos));
+				arcs.data(pie(currentData.datos));
+				sliceLabel.data(pie(currentData.datos));
 			}
-
-			g.transition().duration(500).attrTween("d", function (a) {
+			arcs.transition().duration(500).attrTween("d", function (a) {
 				var i = d3.interpolate(this._current, a);
 				this._current = i(0);
 				return function(t) {
 					return arc(i(t));
 				};
 			});
+
+			sliceLabel.transition().duration(500)
+				.attr("transform", function (d) {
+					return "translate(" + arc.centroid(d) + ")";
+				})
+				.style("fill-opacity", function (d) {
+					return d.value === 0 ? 1e-6 : 1;
+				});
+
 		};
 
 		var initGraph = function(dataFile) {

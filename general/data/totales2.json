@@ -3,35 +3,36 @@
 	"votantes_convocados": 200,
 	"votos_totales": 70,
 	"abstencion": 130,
+	"escrutado": 20,
 	"datos": [
 			{
 				"partido": "PP",
-				"votos": 80,
+				"votos": 30,
 				"escanos": 20
 			},
 			{
 				"partido": "PSOE",
-				"votos": 35,
+				"votos": 25,
 				"escanos": 20
 			},
 			{
 				"partido": "IU",
-				"votos": 20,
+				"votos": 5,
 				"escanos": 6
 			},
 			{
 				"partido": "UPyD",
-				"votos": 50,
+				"votos": 5,
 				"escanos": 4
 			},
 			{
 				"partido": "Podemos",
-				"votos": 20,
+				"votos": 3,
 				"escanos": 4
 			},
 			{
 				"partido": "Nulos",
-				"votos": 20
+				"votos": 2
 			}
 	]
 }
