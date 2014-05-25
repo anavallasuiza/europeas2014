@@ -64,7 +64,6 @@ require(['../../static/js/config'], function () {
 				.attr("d", arc)
 				.attr("svg:title", function(d) {
 					return d.data.nombre;
-					//return helpers.getInfoPartido(d.data.id, 'nombre', 'Default');
 				})
 				.each(function (d) {
 					this._current = d;
@@ -80,7 +79,6 @@ require(['../../static/js/config'], function () {
 				})
 				.attr("text-anchor", "middle")
 				.text(function (d) {
-					//var currentName = helpers.getInfoPartido(d.data.id, 'nombre', 'Default'); 
 					return d.data.nombre.length > 6 ? '' : d.data.nombre;
 				})
 				.style("fill-opacity", function (d) {
@@ -112,7 +110,6 @@ require(['../../static/js/config'], function () {
 					return d.nombre;
 				})
 				.text(function(d) {
-					//return helpers.getInfoPartido(d.id, 'nombre', 'Default');
 					return d.nombre;
 				});
 
@@ -140,7 +137,7 @@ require(['../../static/js/config'], function () {
 			var file = '/json/' + dataFile;
 			d3.json(file, function(error, data) {
 				if(error) {
-					location.reload();
+					//location.reload();
 					}
 				titulo.text(data.data.nombre);
 				votaron.text('Votantes: ' + data.data.censo);
