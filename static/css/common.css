@@ -15,6 +15,7 @@
 @import url('../libs/csans/csans.css');
 @import url('../libs/csans/ui/csans.ui.buttons.css');
 @import url('../libs/selectize/dist/css/selectize.css');
+@import url('../libs/selectize/dist/css/selectize.bootstrap3.css');
 
 /* Variables */
 :root {
@@ -92,8 +93,8 @@ label {
 	color: white;
 	border-radius: 3px;
 	transition: background 0.5s;
-	padding-top: 0.4em;
-	padding-bottom: 0.4em;
+	padding-top: 0.35em;
+	padding-bottom: 0.35em;
 
 	&:hover {
 		background: var(--negro);
@@ -103,7 +104,12 @@ label {
 /* Correccións selectize */
 .selectize-input {
 	display: block;
-	padding-right: 24px !important;
+	padding-right: 34px !important;
+	font-size: 14px;
+
+	> input {
+		font-size: 14px;
+	}
 
 	&.input-active {
 		display: block !important;
