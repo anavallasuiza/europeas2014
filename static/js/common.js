@@ -31,6 +31,10 @@ define([], function() {
 			'nulos': {
 				logo: path + 'nulos.png',
 				color: '#CCCCCC'
+			},
+			'abstencion': {
+				logo: path + 'nulos.png',
+				color: '#ff9900'
 			}
 		}
 	};

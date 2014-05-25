@@ -1,7 +1,8 @@
 {
-	"titulo": "España",
-	"votantes": 200,
-	"abstencion": 70,
+	"titulo": "España (2009)",
+	"votantes_convocados": 200,
+	"votos_totales": 70,
+	"abstencion": 130,
 	"datos": [
 			{
 				"partido": "PP",

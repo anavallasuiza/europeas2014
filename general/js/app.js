@@ -6,7 +6,12 @@ require(['../../static/js/config'], function () {
 	'helpers',
 	'selector'
 	], function(d3, $, helpers, selector) {
-		var currentData, total_votantes, g;
+		var currentData, g;
+
+		var titulo = d3.select('#titulo');
+		var votaron = d3.select('#votaron');
+		var novotaron = d3.select('#novotaron');
+		var abstencion = d3.select('#abstencion');
 
 		var width = 450, 
 			height = 150, 
@@ -38,7 +43,11 @@ require(['../../static/js/config'], function () {
 
 			g.attr("d", arc)
 				.each(function(d) { this._current = d; })
-				.style("fill", function(d) { return helpers.logos[d.data.partido.toLowerCase()].color; });
+				.style("fill", function(d) { return helpers.logos[d.data.partido.toLowerCase()].color; })
+				.append("svg:title")
+				.text(function(d) {
+					return d.data.partido;
+				});
 
 			g.style('opacity', 0)
 				.transition()
@@ -59,13 +68,13 @@ require(['../../static/js/config'], function () {
 
 			var total_partido = total_table.append('li');
 
-			total_partido.style('opacity', 0)
-				.transition()
-				.delay(function(d, i){
-					return i * 20;
-				})
-				.duration(500)
-				.style('opacity', 1);
+			//total_partido.style('opacity', 0)
+				//.transition()
+				//.delay(function(d, i){
+					//return i * 20;
+				//})
+				//.duration(500)
+				//.style('opacity', 1);
 
 			total_partido
 				.append('span')
@@ -92,19 +101,27 @@ require(['../../static/js/config'], function () {
 				.append('span')
 				.attr('class', 'datos')
 				.text(function(d) {
-					var votes_percent = helpers.percent(+total_votantes, +d.votos) + '%';
+					var votes_percent = helpers.percent(+currentData.votos_totales, +d.votos) + '%';
 					var escanos = d.escanos ? d.escanos + ' escaños' : '';
 					return votes_percent + ' ' + escanos;
 				});
 		};
 
+		var buildGraph = function() {
+			generateTotalTable(currentData);
+			generateTotalGraph(currentData);
+		};
 
-		var updateData = function() {
+		var updateGraph = function() {
 			generateTotalTable(currentData);
 
-			g.data(pie(currentData.datos));
+			if(abstencion.property('checked')) {
+				g.data(pie(currentData.datos.concat([{'partido': 'Abstencion', 'votos': currentData.abstencion}])));
+			} else {
+				g.data(pie(currentData.datos));
+			}
 
-			g.transition().duration(750).attrTween("d", function (a) {
+			g.transition().duration(500).attrTween("d", function (a) {
 				var i = d3.interpolate(this._current, a);
 				this._current = i(0);
 				return function(t) {
@@ -113,24 +130,38 @@ require(['../../static/js/config'], function () {
 			});
 		};
 
-		//carga datos iniciais
-		d3.json('/general/data/totales.json', function(data) {
-			total_votantes = data.votantes - data.abstencion;
+		var initGraph = function(dataFile) {
+			var file = '/general/data/' + dataFile;
+			d3.json(file, function(data) {
+				titulo.text(data.titulo);
+				votaron.text('Votantes: ' + data.votantes_convocados);
+				novotaron.text('Abstención: ' + data.abstencion + ' (' + helpers.percent(data.votantes_convocados, data.abstencion) + '%)');
 
-			generateTotalTable(data);
-			generateTotalGraph(data);
-		});
+				if(currentData) {
+					currentData = data;
+					updateGraph();
+				} else {
+					currentData = data;
+					buildGraph();
+				}
+			});
+		};
 
 		var sel = d3.select('#totales')
 			.selectAll('button');
 
 		sel.on('click', function() {
-			var file = '/general/data/' + this.value;
+			initGraph(this.value);
+		});
 
-			d3.json(file, function(data) {
-				currentData = data;
-				updateData();
-			});
+
+		abstencion.on('change', function() {
+			updateGraph();
+		});
+
+		initGraph('totales.json');
+
+
 
 		//Selects
 		var $selectComunidades = $('#select-comunidades');
@@ -201,5 +232,4 @@ require(['../../static/js/config'], function () {
 			]);
 		});
 	});
-});
 });

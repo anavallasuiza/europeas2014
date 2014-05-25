@@ -10,7 +10,8 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "requirejs": "~2.1.11",
-    "d3": "~3.4.8"
+    "requirejs": "*",
+    "d3": "*",
+    "selectize": "*"
   }
 }

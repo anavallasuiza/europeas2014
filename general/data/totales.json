@@ -1,7 +1,8 @@
 {
 	"titulo": "España",
-	"votantes": 100,
-	"abstencion": 40,
+	"votantes_convocados": 100,
+	"votos_totales": 40,
+	"abstencion": 60,
 	"datos": [
 			{
 				"partido": "PP",

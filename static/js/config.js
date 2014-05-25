@@ -6,6 +6,7 @@ require.config({
 		'selectize': '../libs/selectize/dist/js/selectize',
 		'sifter': '../libs/sifter/sifter',
 		'microplugin': '../libs/microplugin/src/microplugin',
+		'qtip': '../libs/qtip2/jquery.qtip.min',
 		'helpers': 'common'
 	}
 });

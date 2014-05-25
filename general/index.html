@@ -5,6 +5,7 @@
 	<meta charset="utf-8" />
 
 	<link rel="stylesheet" href="/static/css/common.min.css" type="text/css" media="all" />
+	<link rel="stylesheet" href="/static/libs/qtip2/jquery.qtip.min.css" type="text/css" media="all" />
 	<link rel="stylesheet" href="/general/css/style.css" type="text/css" media="all" />
 </head>
 <body>
@@ -22,12 +23,14 @@
 
 		<div class="widget-contido ly-2cols">
 			<div>
-				<h2>España</h2>
+				<h2 id="titulo"></h2>
+				<div id="votaron"></div>
+				<div id="novotaron"></div>
+				<label><input id="abstencion" type="checkbox"> Visualizar Abstención</label>
 
 				<div class="widget-lenda">
 					<ul id="total-table"></ul>
 
-					<label><input type="checkbox"> Abstención</label>
 				</div>
 
 				<footer>
@@ -45,8 +48,6 @@
 			</figure>
 
 			<div class="widget-panel">
-				aquí por área
-				<button id="cambia">Cambia datos</button>
 			</div>
 		</div>
 
