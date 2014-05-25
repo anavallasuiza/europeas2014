@@ -158,15 +158,18 @@ require(['../../static/js/config'], function () {
 
 		selector.init($selectComunidades, {
 			labelField: "nombre",
-			valueField: "json"
+			valueField: "json",
+			searchField: ["nombre"]
 		});
 		selector.init($selectProvincias, {
 			labelField: "nombre",
-			valueField: "json"
+			valueField: "json",
+			searchField: ["nombre"]
 		});
 		selector.init($selectMunicipios, {
 			labelField: "nombre",
-			valueField: "json"
+			valueField: "json",
+			searchField: ["nombre"]
 		});
 
 		selector.ocultar($selectProvincias);
