@@ -23,7 +23,7 @@ sleep(5);
 $html = $Curl->get('proxy/http/descargas2014npv.interior.es/99descargas/DESCAR99.htm');
 
 if (strstr($html, 'credential')) {
-    die('Waiting for auth');
+    die("\n\n".'Waiting for auth');
 }
 
 preg_match_all('/TXTOTPE99[^"]+.gz/', $html, $files_total);
