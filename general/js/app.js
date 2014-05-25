@@ -167,15 +167,18 @@ require(['../../static/js/config'], function () {
 
 		selector.init($selectComunidades, {
 			labelField: "nombre",
-			valueField: "json"
+			valueField: "json",
+			searchField: ["nombre"]
 		});
 		selector.init($selectProvincias, {
 			labelField: "nombre",
-			valueField: "json"
+			valueField: "json",
+			searchField: ["nombre"]
 		});
 		selector.init($selectMunicipios, {
 			labelField: "nombre",
-			valueField: "json"
+			valueField: "json",
+			searchField: ["nombre"]
 		});
 
 		selector.ocultar($selectProvincias);
@@ -199,6 +202,7 @@ require(['../../static/js/config'], function () {
 			d3.text('/json/last', function(data) {
 				var updated = new Date(data);
 				actualizado.text('Actualizado: ' + updated.getHours() + ':'+ (updated.getMinutes()<10 ? '0' : '') + updated.getMinutes());
+				actualizado.attr('href', document.location);
 			});
 
 			selector.replaceOptions($selectComunidades, datos);

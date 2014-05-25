@@ -27,7 +27,6 @@
 
 /* Xenérico */
 body {
-	padding: 20px;
 	font-family: 'Fira Sans', sans-serif;
 	color: var(--negro);
 }
@@ -125,12 +124,24 @@ label {
 	> header {
 		padding: 10px 20px;
 		background: var(--gris);
+		position: relative;
 
 		h1 {
 			font-weight: normal;
 			font-size: 1.6rem;
 			letter-spacing: -0.015em;
 			color: var(--gris-escuro);
+		}
+		.actualizacion {
+			position: absolute;
+			font-size: 0.8rem;
+			top: 5px;
+			right: 10px;
+			color: color(var(--gris), light: -30);
+			
+			&:hover {
+				text-decoration: none;
+			}
 		}
 	}
 	> nav {
@@ -165,6 +176,7 @@ label {
 			color: var(--negro);
 			font-size: 3rem;
 			margin: 0;
+			line-height: 1;
 		}
 	}
 	.widget-detalles {
