@@ -187,13 +187,18 @@ label {
 	.widget-lenda {
 		margin-top: 1em;
 		background: white;
-		border: solid 1px color(var(--gris), light:-5);
-		padding: 10px;
 
 		ul {
 			column-width: 200px;
 			list-style: none;
 			margin: 0;
+			border-top: solid 1px var(--gris);
+
+			> li {
+				padding: 6px 0;
+				border-bottom: solid 1px var(--gris);
+				line-height: 1.2;
+			}
 		}
 
 		.logo {
@@ -201,6 +206,7 @@ label {
 		}
 		.color {
 			display: inline-block;
+			vertical-align: middle;
 			width: 1em;
 			height: 1em;
 			border-radius: 3px;
@@ -226,12 +232,7 @@ label {
 	}
 
 	.widget-opcions {
-		border-top: solid 1px color(var(--gris), light:-5);
 		margin-top: 10px;
 		padding-top: 10px;
-
-		+ .widget-opcions {
-			border-top: 0;
-		}
 	}
 }

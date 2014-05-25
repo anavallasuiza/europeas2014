@@ -115,16 +115,16 @@ require(['../../static/js/config'], function () {
 
 			total_partido
 				.append('strong')
-				.attr('class', 'percent')
+				.attr('class', 'percent datos')
 				.text(function(d) {
 					return d.porcentaje + '%';
 				});
 
 			total_partido
 				.append('span')
-				.attr('class', 'diputados')
+				.attr('class', 'diputados datos')
 				.text(function(d) {
-					return d.diputados ? d.diputados + ' escaños' : '';
+					return d.diputados ? d.diputados + ' esc.' : '';
 				});
 		};
 
