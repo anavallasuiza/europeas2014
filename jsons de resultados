@@ -1,0 +1,165 @@
+{
+	"titulo": "2014",
+	"votantes": ,
+	"abstencion": ,
+	"datos": [
+			{
+				"partido": "PP",
+				"votos": ,
+				"escanos": 
+			},
+			{
+				"partido": "PSOE",
+				"votos": ,
+				"escanos": 
+			},
+			{
+				"partido": "IU-EP",
+				"votos": ,
+				"escanos": 
+			},
+			{
+				"partido": "UPyD",
+				"votos": ,
+				"escanos": 
+			},
+			{
+				"partido": "CE",
+				"votos": ,
+				"escanos": 
+			},
+			{
+				"partido": "ERC",
+				"votos": ,
+				"escanos": 
+			},
+			{
+				"partido": "Cs",
+				"votos": ,
+				"escanos": 
+			},
+			{
+				"partido": "Podemos",
+				"votos": ,
+				"escanos": 
+			},
+			{
+				"partido": "Primavera",
+				"votos": ,
+				"escanos": 
+			},
+			{
+				"partido": "Vox",
+				"votos": ,
+				"escanos": 
+			},
+			{
+				"partido": "Brancos",
+				"votos": 10
+			}
+			{
+				"partido": "Nulos",
+				"votos": 10
+			}
+	]
+}
+{
+	"titulo": "2009",
+	"votantes": 15935147,
+	"abstencion": 19557420,
+	"datos": [
+			{
+				"partido": "PP",
+				"votos": 6670232,
+				"escanos": 23 
+			},
+			{
+				"partido": "PSOE",
+				"votos": 6141784,
+				"escanos": 21
+			},
+			{
+				"partido": "IU-EP",
+				"votos": 588248,
+				"escanos": 2
+			},
+			{
+				"partido": "UPyD",
+				"votos": 451866,
+				"escanos": 1
+			},
+			{
+				"partido": "CE",
+				"votos": 808246,
+				"escanos": 2
+			},
+			{
+				"partido": "EdP",
+				"votos": 394938,
+				"escanos": 1
+			},
+			{
+				"partido": "brancos",
+				"votos": 220471
+			}
+			{
+				"partido": "nulos",
+				"votos": 99380
+			}
+	]
+}
+
+	"titulo": "1999",
+	"votantes": 21201890,
+	"abstencion": 12505484,
+	"datos": [
+			{
+				"partido": "PP",
+				"votos": 8410993,
+				"escanos": 27 
+			},
+			{
+				"partido": "PSOE",
+				"votos": 7477823,
+				"escanos": 24
+			},
+			{
+				"partido": "IU-EP",
+				"votos": 1221566,
+				"escanos": 4
+			},
+			{
+				"partido": "CiU",
+				"votos": 937687,
+				"escanos": 3
+			},
+			{
+				"partido": "CE",
+				"votos": 677094,
+				"escanos": 2
+			},
+			{
+				"partido": "CN-EdP",
+				"votos": 613968,
+				"escanos": 2
+			},
+			{
+				"partido": "BNG",
+				"votos": 349079,
+				"escanos": 1
+			},
+			{
+				"partido": "EH",
+				"votos": 306923,
+				"escanos": 1
+			},
+			{
+				"partido": "brancos",
+				"votos": 357583
+			}
+			{
+				"partido": "nulos",
+				"votos": 168684
+			}
+	]
+}
