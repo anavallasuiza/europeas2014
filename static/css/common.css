@@ -41,6 +41,11 @@ label {
 	margin: 0 auto;
 	box-sizing: border-box;
 }
+.ly-wrapper-narrow {
+	width: 643px;
+	margin: 0 auto;
+	box-sizing: border-box;
+}
 .ly-2cols {
 	padding-left: 10px;
 	padding-right: 10px;
@@ -56,6 +61,17 @@ label {
 		width: 50%;
 		box-sizing: border-box;
 		padding: 0 10px;
+	}
+}
+
+.ly-row {
+	padding-left: 20px;
+	padding-right: 20px;
+
+	&::after {
+		content: "";
+		display: block;
+		clear: both;
 	}
 }
 
@@ -196,7 +212,7 @@ label {
 		background: white;
 
 		ul {
-			column-width: 200px;
+			column-width: 180px;
 			list-style: none;
 			margin: 0;
 			border-top: solid 1px var(--gris);

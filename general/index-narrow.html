@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Elecciones Europeas 2014 - Resultados</title>
+	<meta charset="utf-8" />
+
+	<link rel="stylesheet" href="/static/css/common.min.css" type="text/css" media="all" />
+
+	<style type="text/css">
+		.label {
+			font-size: .6em;
+			fill: #fff;
+		}
+		.widget {
+			height: 780px;
+		}
+		.widget figure {
+			margin-top: 20px;
+		}
+		#total-viz {
+			padding-left: 70px;
+		}
+		.widget > nav .selectize-control {
+			display: inline-block;
+			width: 40%;
+			vertical-align: middle;
+		}
+		.widget > nav .selectize-control:last-child {
+			margin-top: 5px;
+			margin-left: 90px;
+		}
+		.widget-lenda .percent {
+			margin-right: 10px;
+			background: #EEE;
+			padding: 3px 6px;
+			line-height: 1;
+			border-radius: 5px;
+		}
+	</style>
+</head>
+<body>
+	<article class="widget ly-wrapper-narrow">
+		<header>
+			<h1>Resultados generales</h1>
+			<a class="actualizacion" id="actualizado" href="#"></a>
+		</header>
+
+		<nav>
+			<button id="select-total" class="button button-principal">España</button>
+			<select id="select-comunidades" placeholder="Selecciona una comunidad"></select>
+			<select id="select-provincias" placeholder="Selecciona una provincia"></select>
+			<select id="select-municipios" placeholder="Selecciona un municipio"></select>
+		</nav>
+
+		<div class="widget-contido ly-row">
+			<div>
+				<h2 id="titulo"></h2>
+				<div class="widget-detalles">
+					<div id="votaron"></div>
+					<div id="novotaron"></div>
+				</div>
+
+				<div class="widget-lenda">
+					<ul id="total-table"></ul>
+				</div>
+			</div>
+
+			<figure>
+				<div id="total-viz"></div>
+
+				<figcaption>
+					<div class="widget-opcions">
+						<label><input id="abstencion" type="checkbox"> Visualizar Abstención</label>
+					</div>
+
+					<ul id="totales" class="button-escoller widget-opcions">
+						<li><button id="b2014" class="button button-activo">2014</button></li>
+						<li><button id="b2009" class="button">2009</button></li>
+					</ul>
+				</figcaption>
+			</figure>
+		</div>
+	</article>
+
+	<script data-main="/general/js/app" src="../static/libs/requirejs/require.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>
