@@ -3,6 +3,30 @@ return [
     '09' => [
         'nombre' => 'Cataluña',
         'limite' => 3,
+        'maioria_absoluta': 68,
+        'comicios': "Elecciones Autonómicas 2016",
+
+      "actuales":[
+        {"CiU": 52},
+        {"ERC": 21},
+        {"PSC": 20},
+        {"PP": 19},
+        {"ICV": 13},
+		{"Cs": 9},
+        {"CUP": 3},
+		{"Podemos": -1},
+      ],
+      "extrapolados":[
+        {"CiU": },
+        {"ERC": },
+        {"PSC": },
+        {"PP": },
+        {"ICV": },
+		{"Cs": },
+        {"CUP": },
+      ],
+,};
+
         'provincias' => [
             '08' => [
                 'nombre' => 'Barcelona',
