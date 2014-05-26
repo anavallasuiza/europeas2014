@@ -43,13 +43,14 @@ require(['../../static/js/config'], function () {
 					$bloque_actual.prepend('<p class="actual">Actuales: '+d.actuales+'</p>');
 				}
 
-				$bloque_extrapolado.prepend('<p class="extrapolado">Extrapolados: '+d.extrapolados+'</p>');
-
+				if (d.extrapolados < 1) {
+					$bloque_extrapolado.prepend('<p class="actual">Sin representación</p>');
+				} else {
+					$bloque_extrapolado.prepend('<p class="extrapolado">Extrapolados: '+d.extrapolados+'</p>');
+				}
 
 				$grupo.appendTo($ex);
 			});
-
-
 		};
 
 		var proyecciones;
