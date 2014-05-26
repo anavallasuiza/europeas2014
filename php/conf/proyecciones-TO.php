@@ -1,4 +1,58 @@
 <?php
+partidos
+			[
+        'partido' => 'PP',
+        'diputados' => 185
+            ],
+            [
+        'nombre' => 'PSOE',
+        'diputados' => 110
+            ],
+            [
+        'nombre' => 'CiU',
+        'diputados' => 16
+            ],
+            [
+        'nombre' => 'IU-IP',
+        'diputados' => 11
+            ],
+            [
+        'nombre' => 'UPyD',
+        'diputados' => 5
+            ],
+            [
+        'nombre' => 'PNV',
+        'diputados' => 5
+            ],
+            [
+        'nombre' => 'ERC',
+        'diputados' => 3
+            ],
+            [
+        'nombre' => 'Amaiur',
+        'diputados' => 7
+            ],
+            [
+        'nombre' => 'BNG',
+        'diputados' => 2
+            ],
+            [
+        'nombre' => 'CC',
+        'diputados' => 2
+            ],
+            [
+        'nombre' => 'Compromís',
+        'diputados' => 1
+            ],
+            [
+        'nombre' => 'Foro AC',
+        'diputados' => 1
+            ],
+            [
+        'nombre' => 'Geroa Bai',
+        'diputados' => 1
+            ],
+
 return [
     '01' => [
         'nombre' => 'Álava',
