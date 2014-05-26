@@ -44,7 +44,7 @@ require(['../../static/js/config'], function () {
 				}
 
 				if (d.extrapolados < 1) {
-					$bloque_extrapolado.prepend('<p class="actual">Sin representación</p>');
+					$bloque_extrapolado.prepend('<p class="extrapolado">Sin representación</p>');
 				} else {
 					$bloque_extrapolado.prepend('<p class="extrapolado">Extrapolados: '+d.extrapolados+'</p>');
 				}
