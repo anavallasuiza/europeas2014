@@ -1,57 +1,46 @@
 <?php
-partidos
-			[
-        'partido' => 'PP',
-        'diputados' => 185
-            ],
-            [
-        'nombre' => 'PSOE',
-        'diputados' => 110
-            ],
-            [
-        'nombre' => 'CiU',
-        'diputados' => 16
-            ],
-            [
-        'nombre' => 'IU-IP',
-        'diputados' => 11
-            ],
-            [
-        'nombre' => 'UPyD',
-        'diputados' => 5
-            ],
-            [
-        'nombre' => 'PNV',
-        'diputados' => 5
-            ],
-            [
-        'nombre' => 'ERC',
-        'diputados' => 3
-            ],
-            [
-        'nombre' => 'Amaiur',
-        'diputados' => 7
-            ],
-            [
-        'nombre' => 'BNG',
-        'diputados' => 2
-            ],
-            [
-        'nombre' => 'CC',
-        'diputados' => 2
-            ],
-            [
-        'nombre' => 'Compromís',
-        'diputados' => 1
-            ],
-            [
-        'nombre' => 'Foro AC',
-        'diputados' => 1
-            ],
-            [
-        'nombre' => 'Geroa Bai',
-        'diputados' => 1
-            ],
+var comicios = {
+  "comicios": "Elecciones Generales 2016",
+    "maioria_absoluta": 175,
+      "actuales":[
+        {"PP": 185},
+        {"PSOE": 110},
+        {"CiU": 16},
+        {"IU": 11},
+        {"UPyD": 5},
+		{"Amaiur": 7},
+        {"PNV": 5},
+		{"ERC": 3},
+        {"CC": 2},
+        {"BNG": 2},
+		{"Compromís": 1},
+		{"FAC": 1},
+		{"Geroa Bai": 1},
+        {"Podemos": -1}
+        {"Equo": -1}
+		{"C's": -1}
+		{"Vox": -1}
+      ],
+      "extrapolados":[
+        {"PP": },
+        {"PSOE": },
+        {"CiU": },
+        {"IU": },
+        {"UPyD": },
+		{"Amaiur": },
+        {"PNV": },
+		{"ERC": },
+        {"CC": },
+        {"BNG": },
+		{"Compromís": },
+		{"FAC": },
+		{"Geroa Bai": },
+        {"Podemos": }
+        {"Equo": }
+		{"C's": }
+		{"Vox": }
+      ],};
+
 
 return [
     '01' => [
