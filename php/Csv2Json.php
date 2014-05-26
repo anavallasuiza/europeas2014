@@ -274,7 +274,6 @@ Class Csv2Json
 
         $result = [];
 
-/*
         $proyections = include (__DIR__.'/conf/proyecciones-TO.php');
 
         foreach ($total['PR'] as $PR) {
@@ -320,10 +319,12 @@ Class Csv2Json
         $groups = [];
 
         foreach ($proyections['actuales'] as $key => $current) {
-            if (!preg_match('/^[0-9]+$/', $key)) {
+            $key = explode(',', $key);
+
+            if (!preg_match('/^[0-9]+$/', $key[0])) {
                 $groups[$key] = [
-                    'id' => $key,
-                    'nombre' => $key,
+                    'id' => $key[0],
+                    'nombre' => $key[0],
                     'actuales' => $current,
                     'extrapolados' => -1
                 ];
@@ -331,16 +332,22 @@ Class Csv2Json
                 continue;
             }
 
-            if (empty($result[$key])) {
-                continue;
-            }
+            foreach ($key as $each) {
+                if (empty($result[$each])) {
+                    continue;
+                }
 
-            $groups[$key] = [
-                'id' => $key,
-                'nombre' => $result[$key]['nombre'],
-                'actuales' => $current,
-                'extrapolados' => $result[$key]['diputados']
-            ];
+                if (empty($groups[$key[0]])) {
+                    $groups[$key[0]] = [
+                        'id' => $key[0],
+                        'nombre' => $result[$key[0]]['nombre'],
+                        'actuales' => $current,
+                        'extrapolados' => $result[$each]['diputados']
+                    ];
+                } else {
+                    $groups[$key[0]]['extrapolados'] += $result[$each]['diputados'];
+                }
+            }
         }
 
         usort($groups, function ($a, $b) {
@@ -353,8 +360,6 @@ Class Csv2Json
             'mayoria' => $proyections['mayoria'],
             'grupos' => $groups
         ];
-
-        */
 
         $proyections = include (__DIR__.'/conf/proyecciones-CM.php');
 
