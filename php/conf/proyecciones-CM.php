@@ -1,30 +1,21 @@
 <?php
 return [
     '09' => [
-        'nombre' => 'Cataluña',
+        'lugar' => 'Cataluña',
+        'comicios' => 'Elecciones Autonómicas 2016',
         'limite' => 3,
-        'maioria_absoluta': 68,
-        'comicios': "Elecciones Autonómicas 2016",
+        'mayoria' => 68,
 
-      "actuales":[
-        {"CiU": 52},
-        {"ERC": 21},
-        {"PSC": 20},
-        {"PP": 19},
-        {"ICV": 13},
-		{"Cs": 9},
-        {"CUP": 3},
-		{"Podemos": -1},
-      ],
-      "extrapolados":[
-        {"CiU": },
-        {"ERC": },
-        {"PSC": },
-        {"PP": },
-        {"ICV": },
-		{"Cs": },
-        {"CUP": },
-      ],
+        'actuales' => [
+            '0191' => 52,
+            '0129' => 21,
+            '0065' => 20,
+            '0003' => 19,
+            '0196' => 13,
+            '0185' => 9,
+            'CUP' => 3,
+            '0262' => -1
+        ],
 
         'provincias' => [
             '08' => [
@@ -47,29 +38,20 @@ return [
     ],
 
     '14' => [
-        'nombre' => 'País Vasco',
+        'lugar' => 'País Vasco',
+        'comicios' => 'Elecciones Autonómicas 2016',
         'limite' => 3,
-        'maioria_absoluta': 37,
-        'comicios': "Elecciones Autonómicas 2016",
+        'mayoria' => 37,
 
-      "actuales":[
-        {"PNV": 27},
-        {"Bildu": 21},
-        {"PSE": 16},
-		{"PP": 10},
-		{"IU-EKI": 0},
-		{"UPyD": 1},
-		{"Podemos": -1}
-      ],
-      "extrapolados":[
-        {"PNV": 27},
-        {"Bildu": 21},
-        {"PSE": 16},
-		{"PP": 10},
-		{"IU-EKI": 0},
-		{"UPyD": 1},
-		{"Podemos": -1}
-      ],
+        'actuales' => [
+            '0190' => 27,
+            '0166' => 21,
+            '0012' => 16,
+            '0003' => 10,
+            '0220' => 0,
+            '0004' => 1,
+            '0261' => -1
+        ],
 
         'provincias' => [
             '48' => [
@@ -88,27 +70,20 @@ return [
     ],
 
     '11' => [
-        'nombre' => 'Galicia',
+        'lugar' => 'Galicia',
+        'comicios' => 'Elecciones Autonómicas 2016',
         'limite' => 5,
-        'maioria_absoluta': 37,
-        'comicios': "Elecciones Autonómicas 2016",
+        'mayoria' => 37,
 
-      "actuales":[
-        {"PP": 41},
-        {"PSdeG": 18},
-        {"AGE": 9},
-		{"BNG": 7},
-		{"UPyD": 0},
-		{"Podemos": -1}
-      ],
-      "extrapolados":[
-        {"PP": },
-        {"PSdeG": },
-        {"AGE": },
-		{"BNG": },
-		{"UPyD": },
-		{"Podemos": }
-      ],
+        'actuales' => [
+            '0003' => 41,
+            '0012' => 18,
+            '0202' => 9,
+            '0168' => 7,
+            '0004' => 0,
+            '0045' => -1
+        ],
+
         'provincias' => [
             '15' => [
                 'nombre' => 'A Coruña',
@@ -130,28 +105,19 @@ return [
     ],
 
     '12' => [
-        'nombre' => 'Madrid',
+        'lugar' => 'Madrid',
+        'comicios' => 'Elecciones Autonómicas 2015',
         'limite' => 5,
-        'maioria_absoluta': 64,
-        'comicios': "Elecciones Autonómicas 2015",
+        'mayoria' => 64,
         
-              "actuales":[
-        {"PP": 72},
-        {"PSOE": 36},
-        {"IU": 13},
-        {"UPyD": 8},
-		{"Podemos": -1}
-		{"Vox": -1}
-      ],
-      "extrapolados":[
-        {"PP": },
-        {"PSOE": },
-        {"IU": },
-        {"UPyD": },
-		{"Podemos": }
-		{"Vox": }
-      ],
-
+        'actuales' => [
+            '0003' => 72,
+            '0012' => 36,
+            '0223' => 13,
+            '0004' => 8,
+            '0045' => -1,
+            '0053' => -1
+        ],
 
         'provincias' => [
             '28' => [

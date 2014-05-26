@@ -1,13 +1,7 @@
 <?php
 Class Csv2Json
 {
-    private $proyections = [];
     private $dir = '';
-
-    public function setProyections($proyections)
-    {
-        $this->proyections = $proyections;
-    }
 
     public function jsonDirectory($dir)
     {
@@ -135,7 +129,7 @@ Class Csv2Json
 
         foreach ($data as $blocks) {
             foreach ($blocks as $values) {
-                $this->saveJson($values['file'], $values);
+                //$this->saveJson($values['file'], $values);
             }
         }
 
@@ -271,5 +265,205 @@ Class Csv2Json
     public function percent($value)
     {
         return preg_replace('/([0-9]{3})([0-9]{2})/', '$1.$2', $value);
+    }
+
+    // Partido A: 100 votos
+    // Partido B: 50 votos
+    // Partido C: 25 votos
+
+    public function setProyections($total)
+    {
+        $Dhont = new Dhont;
+        $json = [];
+
+        $proyections = include (__DIR__.'/conf/proyecciones-TO.php');
+        $result = [];
+
+        foreach ($total['PR'] as $PR) {
+            $values = $proyections['provincias'][$PR['data']['PR']];
+            $list = [];
+            $min = 0;
+
+            foreach ($PR['data']['grupos'] as $group) {
+                if (isset($group['otros'])) {
+                    foreach ($group['otros'] as $other) {
+                        if (empty($result[$other['id']])) {
+                            $result[$other['id']] = $other;
+                        }
+
+                        $list[$other['id']] = $other['votos'];
+                        $min += $other['votos'];
+                    }
+                } elseif ((int)$group['id'] > 0) {
+                    if (empty($result[$group['id']])) {
+                        $result[$group['id']] = $group;
+                    }
+
+                    $list[$group['id']] = $group['votos'];
+                    $min += $group['votos'];
+                } elseif ($group['id'] === '-1') {
+                    $min += $group['votos'];
+                }
+            }
+
+            $min = $min * ($values['limite'] / 100);
+
+            $list = array_filter($list, function ($value) use ($min) {
+                return ((int)$value >= $min) ? true : false;
+            });
+
+            $list = $Dhont->repartirBancas($values['escanos'], $list);
+
+            foreach ($list as $id) {
+                $result[$id]['diputados']++;
+            }
+        }
+
+        $groups = [];
+
+        foreach ($proyections['actuales'] as $key => $current) {
+            if (!preg_match('/^[0-9]+$/', $key)) {
+                $groups[$key] = [
+                    'id' => $key,
+                    'nombre' => $key,
+                    'actuales' => $current,
+                    'extrapolados' => -1
+                ];
+
+                continue;
+            }
+
+            if (empty($result[$key])) {
+                continue;
+            }
+
+            $groups[$key] = [
+                'id' => $key,
+                'nombre' => $result[$key]['nombre'],
+                'actuales' => $current,
+                'extrapolados' => $result[$key]['diputados']
+            ];
+        }
+
+        usort($groups, function ($a, $b) {
+            return ($a['actuales'] > $b['actuales']) ? -1 : 1;
+        });
+
+        $json[] = [
+            'lugar' => $proyections['lugar'],
+            'nombre' => $proyections['comicios'],
+            'mayoria' => $proyections['mayoria'],
+            'grupos' => $groups
+        ];
+
+        $proyections = include (__DIR__.'/conf/proyecciones-CM.php');
+
+        foreach ($proyections as $id => $values) {
+            $row = $total['CM'][$id];
+            $result = [];
+
+            foreach ($row['children'] as $children) {
+                $PR = $total['PR'][$children['id']]['data'];
+                $list = [];
+                $min = 0;
+
+                foreach ($PR['grupos'] as $group) {
+                    if (isset($group['otros'])) {
+                        foreach ($group['otros'] as $other) {
+                            if (empty($result[$other['id']])) {
+                                $result[$other['id']] = $other;
+                            }
+
+                            $list[$other['id']] = $other['votos'];
+                            $min += $other['votos'];
+                        }
+                    } elseif ((int)$group['id'] > 0) {
+                        if (empty($result[$group['id']])) {
+                            $result[$group['id']] = $group;
+                        }
+
+                        $list[$group['id']] = $group['votos'];
+                        $min += $group['votos'];
+                    } elseif ($group['id'] === '-1') {
+                        $min += $group['votos'];
+                    }
+                }
+
+                $min = $min * ($values['limite'] / 100);
+
+                $list = array_filter($list, function ($value) use ($min) {
+                    return ((int)$value >= $min) ? true : false;
+                });
+
+                $list = $Dhont->repartirBancas($values['provincias'][$PR['PR']]['escanos'], $list);
+
+                foreach ($list as $id) {
+                    $result[$id]['diputados']++;
+                }
+            }
+
+            $groups = [];
+
+            foreach ($row['data']['grupos'] as $group) {
+                if (isset($group['otros'])) {
+                    foreach ($group['otros'] as $other) {
+                        if (isset($result[$other['id']]) && isset($values['actuales'][$other['id']])) {
+                            $groups[$other['id']] = [
+                                'id' => $other['id'],
+                                'nombre' => $other['nombre'],
+                                'actuales' => $values['actuales'][$other['id']],
+                                'extrapolados' => $result[$other['id']]['diputados']
+                            ];
+                        } elseif (isset($values['actuales'][$other['id']])) {
+                            $groups[$other['id']] = [
+                                'id' => $other['id'],
+                                'nombre' => $other['nombre'],
+                                'actuales' => $values['actuales'][$other['id']],
+                                'extrapolados' => 0
+                            ];
+                        }
+                    }
+                } elseif (isset($result[$group['id']]) && isset($values['actuales'][$group['id']])) {
+                    $groups[$group['id']] = [
+                        'id' => $group['id'],
+                        'nombre' => $group['nombre'],
+                        'actuales' => $values['actuales'][$group['id']],
+                        'extrapolados' => $result[$group['id']]['diputados']
+                    ];
+                } elseif (((int)$group['id'] > 0) && isset($values['actuales'][$group['id']])) {
+                    $groups[$group['id']] = [
+                        'id' => $group['id'],
+                        'nombre' => $group['nombre'],
+                        'actuales' => $values['actuales'][$group['id']],
+                        'extrapolados' => 0
+                    ];
+                }
+            }
+
+            foreach ($values['actuales'] as $key => $value) {
+                if (preg_match('/^[0-9]+$/', $key)) {
+                    continue;
+                }
+
+                $groups[$key] = [
+                    'nombre' => $key,
+                    'actuales' => $value,
+                    'extrapolados' => -1
+                ];
+            }
+
+            usort($groups, function ($a, $b) {
+                return ($a['actuales'] > $b['actuales']) ? -1 : 1;
+            });
+
+            $json[] = [
+                'lugar' => $values['lugar'],
+                'nombre' => $values['comicios'],
+                'mayoria' => $values['mayoria'],
+                'grupos' => $groups
+            ];
+        }
+
+        $this->saveJson('proyecciones.json', $json);
     }
 }
