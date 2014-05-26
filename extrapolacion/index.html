@@ -7,43 +7,71 @@
 	<link rel="stylesheet" href="/static/css/common.min.css" type="text/css" media="all" />
 
 	<style type="text/css">
-		.diputado{
-			padding: .3em;
-		}
-
 		.actual	.diputado {
-			border: 1px solid #ccc;
+			background: #ccc;
+			opacity: 0.3;
 		}
 
 		.extrapolado .diputado  {
-			border: 1px solid red;
-		
+			background: red;
+		}
+		.widget-contido {
+			padding-left: 20px;
+			padding-right: 20px;
+			height: 520px;
+			overflow-y: auto;
 		}
 
+		.extrapolacion {
+			table-layout: static;
+			width: 100%;
+			border: none;
+		}
+		.extrapolacion td, .extrapolacion th {
+			border: none;
+			border-top: solid 1px #DEDEDE;
+			vertical-align: top;
+		}
+		.extrapolacion th {
+			width: 90px;
+			padding: 15px 0;
+		}
+		
+		.extrapolacion td {
+			width: 260px;
+			padding: 15px 5px;
+		}
+
+		.extrapolacion td p {
+			font-size: 0.85em;
+		}
+		.extrapolacion td span {
+			float: left;
+			width: 10px;
+			height: 10px;
+			margin: 1px;
+		}
 	</style>
 </head>
 <body>
-	<div class="widget">
+	<article class="widget ly-wrapper-narrow">
 		<header>
-			<nav>
-				<ul id="menu">
-				</ul>
-			</nav>
-
-			<h1 id="titulo"></h1>
+			<h1>Extrapolación de resultados electorales</h1>
+			<p>Así quedarían las próximas elecciones si los resultados fueran los mismos que esta</p>
 		</header>
 
-		<article>
-			<section id="extrapolacion">
-				<div id="absoluta"></div>
-				<header>
-					<div>Actuales</div>
-					<div>Extrapolados</div>
-				</header>
-			</section>
+		<nav>
+			<select id="menu">
+				
+			</select>
+		</nav>
 
-		</article>
-	</div>
+		<div class="widget-contido">
+				<div id="absoluta"></div>
+			<table class="extrapolacion" id="extrapolacion">
+			</table>
+		</div>
+	</article>
 
 	<script data-main="/extrapolacion/js/app" src="../static/libs/requirejs/require.js" type="text/javascript" charset="utf-8"></script>
 </body>

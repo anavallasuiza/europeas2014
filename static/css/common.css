@@ -155,6 +155,12 @@ label {
 			letter-spacing: -0.015em;
 			color: var(--gris-escuro);
 		}
+		p {
+			color: color(var(--gris-escuro), 70);
+			line-height: 1;
+			margin-top: 5px;
+			font-size: 1.1em;
+		}
 		.actualizacion {
 			position: absolute;
 			font-size: 0.8rem;

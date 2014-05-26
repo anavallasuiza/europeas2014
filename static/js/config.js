@@ -14,7 +14,7 @@ require.config({
 
 require(['jquery'], function ($) {
 
-	$('.button-escoller .button').on('click', function () {
+	$('.button-escoller').on('click', '.button', function () {
 		var $this = $(this);
 
 		$this.parents('.button-escoller').find('.button-activo').removeClass('button-activo');

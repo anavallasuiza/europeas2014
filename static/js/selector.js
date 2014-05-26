@@ -26,6 +26,11 @@ define(['jquery', 'selectize'], function ($) {
 			$.getJSON(url, function (options) {
 				selector.replaceOptions($element, options);
 			});
+		},
+		seleccionar: function ($element, valor) {
+			var selectize = $element[0].selectize;
+
+			selectize.addItem(valor);
 		}
 	};
 
