@@ -464,6 +464,18 @@ Class Csv2Json
             ];
         }
 
+        $groups = include (__DIR__.'/conf/grupos.php');
+
+        foreach ($json as &$row) {
+            foreach ($row['grupos'] as &$group) {
+                if (isset($group['id']) && isset($groups[$group['id']])) {
+                    $group['color'] = $groups[$group['id']]['color'];
+                } else {
+                    $group['color'] = '#'.strtoupper(substr(md5($group['nombre']), 0, 6));
+                }
+            }
+        }
+
         $this->saveJson('proyecciones.json', $json);
     }
 }
