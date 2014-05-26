@@ -17,6 +17,7 @@ require(['../../static/js/config'], function () {
 		var votaron = d3.select('#votaron');
 		var novotaron = d3.select('#novotaron');
 		var actualizado = d3.select('#actualizado');
+		var abs = d3.select('#abstencion');
 
 		var width = 550, 
 			height = 200, 
@@ -84,7 +85,7 @@ require(['../../static/js/config'], function () {
 				})
 				.attr("text-anchor", "middle")
 				.text(function (d) {
-					return d.data.nombre.length > 6 ? d.data.nombre.substring(0, 5) : d.data.nombre;
+					return d.data.nombre.length > 10 ? d.data.nombre.substring(0, 10) + '...' : d.data.nombre;
 				})
 				.style("fill-opacity", function (d) {
 					return formatPercent(d.data.porcentaje) > 5 ? 1 : 0;
@@ -135,8 +136,27 @@ require(['../../static/js/config'], function () {
 
 		var buildGraph = function() {
 			generateTotalTable(currentData);
-			generateTotalGraph(currentData);
+			var abs_tmp = {
+				diputados: 0,
+				id: '-9',
+				nombre: 'Abstención',
+				porcentaje:  currentData.abstencion_porcentaje,
+				votos: currentData.abstencion_numero
+			};
+
+			if(abs.property('checked')) {
+				var absData = $.extend(true, {}, currentData);
+				absData.grupos.push(abs_tmp);
+
+				generateTotalGraph(absData);
+				
+			
+			} else {
+				generateTotalGraph(currentData);
+			}
 		};
+
+		abs.on('change', buildGraph);
 
 		var initGraph = function(dataFile, callback) {
 			var file = '/json/' + dataFile;
