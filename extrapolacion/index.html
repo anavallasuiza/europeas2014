@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Elecciones Europeas 2014 - Extrapolación</title>
+	<meta charset="utf-8" />
+
+	<link rel="stylesheet" href="/static/css/common.min.css" type="text/css" media="all" />
+
+	<style type="text/css">
+		.diputado{
+			padding: .3em;
+		}
+
+		.actual	.diputado {
+			border: 1px solid #ccc;
+		}
+
+		.extrapolado .diputado  {
+			border: 1px solid red;
+		
+		}
+
+	</style>
+</head>
+<body>
+	<div class="widget">
+		<header>
+			<nav>
+				<ul id="menu">
+				</ul>
+			</nav>
+
+			<h1 id="titulo"></h1>
+		</header>
+
+		<article>
+			<section id="extrapolacion">
+				<div id="absoluta"></div>
+				<header>
+					<div>Actuales</div>
+					<div>Extrapolados</div>
+				</header>
+			</section>
+
+		</article>
+	</div>
+
+	<script data-main="/extrapolacion/js/app" src="../static/libs/requirejs/require.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>
