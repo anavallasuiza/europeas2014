@@ -267,17 +267,15 @@ Class Csv2Json
         return preg_replace('/([0-9]{3})([0-9]{2})/', '$1.$2', $value);
     }
 
-    // Partido A: 100 votos
-    // Partido B: 50 votos
-    // Partido C: 25 votos
-
     public function setProyections($total)
     {
         $Dhont = new Dhont;
         $json = [];
 
-        $proyections = include (__DIR__.'/conf/proyecciones-TO.php');
         $result = [];
+
+/*
+        $proyections = include (__DIR__.'/conf/proyecciones-TO.php');
 
         foreach ($total['PR'] as $PR) {
             $values = $proyections['provincias'][$PR['data']['PR']];
@@ -355,6 +353,8 @@ Class Csv2Json
             'mayoria' => $proyections['mayoria'],
             'grupos' => $groups
         ];
+
+        */
 
         $proyections = include (__DIR__.'/conf/proyecciones-CM.php');
 
