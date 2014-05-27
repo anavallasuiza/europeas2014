@@ -69,6 +69,8 @@ foreach ($files as $file) {
     $download = true;
 }
 
+$Curl->get('remote/logout');
+
 if (empty($download)) {
     die('Files could not be downloaded');
 }
