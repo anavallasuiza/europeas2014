@@ -245,19 +245,18 @@ require(['../../static/js/config'], function () {
 					//borra municipios no caso de que haxa
 					selector.clearOptions($selectMunicipios);
 					selector.ocultar($selectMunicipios);
-
-					//Ao cambiar de provincia, carga os municipios
-					$selectProvincias.change(function () {
-						initGraph($selectProvincias.val(), function (datos) {
-							selector.mostrar($selectMunicipios);
-							selector.replaceOptions($selectMunicipios, datos);
-
-							$selectMunicipios.change(function () {
-								initGraph($selectMunicipios.val());
-							});
-						});
-					});
 				});
+			});
+
+			$selectProvincias.change(function () {
+				initGraph($selectProvincias.val(), function (datos) {
+					selector.mostrar($selectMunicipios);
+					selector.replaceOptions($selectMunicipios, datos);
+				});
+			});
+
+			$selectMunicipios.change(function () {
+				initGraph($selectMunicipios.val());
 			});
 		});
 	});
