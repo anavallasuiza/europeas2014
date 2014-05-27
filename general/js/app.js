@@ -159,6 +159,10 @@ require(['../../static/js/config'], function () {
 		abs.on('change', buildGraph);
 
 		var initGraph = function(dataFile, callback) {
+			if (!dataFile.length) {
+				return;
+			}
+
 			var file = '/json/' + dataFile;
 
 			d3.json(file, function(error, data) {
